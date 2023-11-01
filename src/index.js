@@ -10,7 +10,7 @@ import Perfil from './pages/Perfil'
 import Forum  from './pages/Forum'
 import Cursos from './pages/Cursos'
 import Vagas from './pages/Vagas';
-import './App.css'
+import './App.css';
 
 
 const roteador = createBrowserRouter([

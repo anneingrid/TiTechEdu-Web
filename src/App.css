@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -13,6 +12,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 
 .App-link {
   color: #61dafb;
@@ -41,7 +41,23 @@
 
 }
 
-i{
-  font-size: 14px;
-  
+.gradient-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: white;
+  background: #0034a3; /* fallback for browsers that don't support gradients */
+  transition: all 0.3s ease;
+  transform: scale(1);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  border-radius: 25px;
+  display: inline-block; /* This is needed for the transform to work correctly */
 }
+
+.gradient-btn:hover {
+  background: #021166; /* color when the cursor is at the end of the button */
+  transform: scale(1.05); /* slightly increase size */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* add shadow */
+}
+

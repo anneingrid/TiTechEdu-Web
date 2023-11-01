@@ -4,7 +4,7 @@ export default function Vagas() {
     return (
         <>
             <NavBarr></NavBarr>
-            <h1>oiii</h1>
+            <h1>Não temos vagas!</h1>
         </>
     );
 };
