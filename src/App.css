@@ -13,7 +13,6 @@
   color: white;
 }
 
-
 .App-link {
   color: #61dafb;
 }
@@ -61,3 +60,34 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* add shadow */
 }
 
+.caixaTexto {
+  height: 52px;
+  width: 364px;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.botao {
+  height: 52px;
+  width: 124px;
+  background-color: rgb(110, 137, 197);
+  border-radius: 16px;
+  border-color: rgb(110, 137, 197);
+}
+
+.botao:hover {
+  background-color: rgb(64, 90, 145);
+}
+
+.botaoCancelar {
+  height: 52px;
+  width: 124px;
+  background-color: rgb(216, 71, 71);
+  border-radius: 16px;
+  border-color: rgb(216, 71, 71);
+}
+
+.botaoCancelar:hover {
+  background-color: rgb(170, 48, 48);
+  border-color: rgb(170, 48, 48);
+}

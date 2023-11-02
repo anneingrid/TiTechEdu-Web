@@ -11,10 +11,13 @@ import Forum  from './pages/Forum'
 import Cursos from './pages/Cursos'
 import Vagas from './pages/Vagas';
 import './App.css';
-
+import Cadastro from './pages/Cadastro';
+import Login from './pages/Login';
 
 const roteador = createBrowserRouter([
-  {path: '/', element: <Home/>},
+  {path: '/', element: <Login/>},
+  {path: '/cadastro', element: <Cadastro/>},
+  {path: '/home', element: <Home/>},
   {path: '/perfil', element: <Perfil/>},
   {path: '/forum', element: <Forum/>},
   {path: '/cursos', element: <Cursos/>},
