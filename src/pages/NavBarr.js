@@ -9,7 +9,7 @@ export default function NavBarr() {
     const handleShow = () => setShow(true);
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar bg="dark"  data-bs-theme="dark">
                 <Container>
                     <i id='menu' className="bi bi-list text-white me-2" onClick={handleShow} style={{ fontSize: 25 }}></i>
                     {/* <img src="/logo.png"
