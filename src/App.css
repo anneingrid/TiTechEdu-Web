@@ -60,6 +60,62 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* add shadow */
 }
 
+.card {
+  text-align: center;
+  align-items: center;
+  padding: 3%;
+  height: 110px;
+  background-color: #ffffff; 
+  transition: background-color 0.3s; 
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #dbebf5; 
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+}
+
+
+.card img {
+  width: 40px !important;
+  padding-top: 7%;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #566265;
+}
+
+.caixa-selecao{
+  height: 50px;
+  font-style: italic;
+  font-size: 20px;
+  color: #566265;
+}
+
+.caixa-busca{
+  height: 50px;
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
+  color: #566265;
+}
+
+.botao-buscar{
+  height: 50px;
+  width: 120px;
+  background-color: rgb(16, 97, 196);
+}
+
+.carousel-control-prev, .carousel-control-next {
+  margin: -140px; 
+}
+
+  .carousel-indicators {
+      bottom: -35px; 
+  }
+
 .caixaTexto {
   height: 52px;
   width: 364px;
