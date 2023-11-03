@@ -13,6 +13,8 @@ import Vagas from './pages/Vagas';
 import './App.css';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
+import Tarefas from './pages/Tarefas';
+import Exercicio from './pages/Exercicio';
 
 const roteador = createBrowserRouter([
   {path: '/', element: <Login/>},
@@ -22,6 +24,8 @@ const roteador = createBrowserRouter([
   {path: '/forum', element: <Forum/>},
   {path: '/cursos', element: <Cursos/>},
   {path: '/linkedin', element: <Vagas/>},
+  {path: '/exercicios', element: <Tarefas/>},
+  {path: '/exercicios/:id', element: <Exercicio />}
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
