@@ -1,33 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import animationData from './animacaoLoginCadastro.json';
+import Lottie from "lottie-react";
+import { useNavigate } from 'react-router-dom';
+
 
 function Login() {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const navegacao = useNavigate();
+
+    const salvar = (event) => {
+        event.preventDefault();
+        console.log('Login:', { email, senha });
+        navegacao('/home');
+    }
+
     return (
-        <Row className="vh-100">
+        <Row className="vh-100 m-0">
             <Col md={6} sm={12} className="d-flex align-items-center justify-content-center bg-white">
                 <Container className='d-flex justify-content-center'>
-                    <Form className='text-center'>
+                    <Form className='text-center' onSubmit={salvar}>
                         <h2>LOGIN</h2>
                         <h6 className='my-3'>Realize seu login agora!</h6>
                         <Form.Group controlId="formEmail">
-                            <Form.Control className='caixaTexto mb-3' type="email" placeholder="Email" />
+                            <Form.Control className='caixaTexto mb-3'
+                                type="email"
+                                placeholder="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} />
                         </Form.Group>
                         <Form.Group controlId="formPassword">
-                            <Form.Control className='caixaTexto' type="password" placeholder="Senha" />
+                            <Form.Control className='caixaTexto'
+                                type="password"
+                                placeholder="Senha"
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)} />
                         </Form.Group>
-                        <Link to='/home'>
-                            <Button className="botao mt-4" variant="primary" type="submit" >
-                                ENTRAR
-                            </Button>
-                        </Link>
+                        <Button className="botao mt-4" variant="primary" type="submit" >
+                            ENTRAR
+                        </Button>
                         <div className='mt-3 fw-bold'>Não tem conta?</div>
                         <Link to='/cadastro' className='text-black'>Criar conta</Link>
                     </Form>
                 </Container>
             </Col>
             <Col md={6} className="d-flex justify-content-center align-items-center">
-                <img src="/logo.png" alt="Descrição da imagem" />
+                <Lottie className='animacaoTamanho' animationData={animationData} />
             </Col>
         </Row>
     );
