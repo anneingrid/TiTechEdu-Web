@@ -15,10 +15,12 @@ import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import Tarefas from './pages/Tarefas';
 import Exercicio from './pages/Exercicio';
+import Escolhas from './pages/Escolhas';
 
 const roteador = createBrowserRouter([
   {path: '/', element: <Login/>},
   {path: '/cadastro', element: <Cadastro/>},
+  {path: '/escolhas', element: <Escolhas/>},
   {path: '/home', element: <Home/>},
   {path: '/perfil', element: <Perfil/>},
   {path: '/forum', element: <Forum/>},
