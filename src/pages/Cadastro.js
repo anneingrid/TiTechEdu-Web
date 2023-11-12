@@ -16,10 +16,29 @@ function Cadastro() {
         if (senha !== confirmarSenha) {
             alert("As senhas não coincidem.");
         } else {
-            console.log('Cadastro:', { nome, email, senha });
-            navigate('/escolhas');
+            fetch('http://localhost:3001/registro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ nome, email, senha }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Email já cadastrado.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    navigate('/escolhas');
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
         }
     };
+
     return (
         <Row className="vh-100 m-0">
             <Col md={6} className="d-flex align-items-center justify-content-center bg-white">
