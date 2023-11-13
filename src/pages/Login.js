@@ -13,9 +13,28 @@ function Login() {
 
     const salvar = (event) => {
         event.preventDefault();
-        console.log('Login:', { email, senha });
-        navegacao('/home');
+        fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, senha }),
+        })
+            .then(async response => {
+                const text = await response.text();
+                if (!response.ok) {
+                    throw new Error(text);
+                }
+                return text;
+            })
+            .then(() => {
+                navegacao('/home');
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
     }
+
 
     return (
         <Row className="vh-100 m-0">

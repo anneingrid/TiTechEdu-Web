@@ -35,7 +35,7 @@ export default function Cursos() {
                     <Carousel.Item>
                         <Row className="py-2">
                             <Col md={3}>
-                                <Card className='card'>
+                                 <Card className='cardCurso'> {/*Mudar o nome da classe para algo mais específico */}
                                     <div className="d-flex align-items-center">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/2048px-HTML5_Badge.svg.png" alt="HTML 5" />
                                         <Card.Body className="ms-2">
@@ -46,7 +46,7 @@ export default function Cursos() {
                             </Col>
 
                             <Col md={3}>
-                                <Card className='card'>
+                                <Card className='cardCurso'>
                                     <div className="d-flex align-items-center">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/2048px-HTML5_Badge.svg.png" alt="HTML 5" />
                                         <Card.Body className="ms-2">
@@ -57,7 +57,7 @@ export default function Cursos() {
                             </Col>
 
                             <Col md={3}>
-                                <Card className='card'>
+                                <Card className='cardCurso'>
                                     <div className="d-flex align-items-center">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/2048px-HTML5_Badge.svg.png" alt="HTML 5" />
                                         <Card.Body className="ms-2">
