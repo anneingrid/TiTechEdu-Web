@@ -4,7 +4,6 @@ import { Container, Row, Col, Image, Form } from 'react-bootstrap';
 import Footerr from './Footerr';
 import NavBarr from './NavBarr';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 export default function Perfil() {
     return (
