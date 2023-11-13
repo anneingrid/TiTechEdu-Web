@@ -41,7 +41,19 @@ body {
 }
 
 .footerr {
-  background-color: #21081a !important;
+  background-color: #08210c !important;
+
+}
+
+.botaoAddPergunta{
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addPergunta{
+  border-radius: 100%;
+  position: fixed;
 
 }
 
@@ -70,7 +82,7 @@ body {
   /* add shadow */
 }
 
-.card {
+.cardCurso {
   text-align: center;
   align-items: center;
   padding: 3%;
@@ -80,19 +92,19 @@ body {
   cursor: pointer;
 }
 
-.card:hover {
+.cardCurso:hover {
   background-color: #dbebf5;
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 
-.card img {
+.cardCurso img {
   width: 40px !important;
   padding-top: 7%;
 }
 
-.card-text {
+.cardCurso-text {
   font-size: 16px;
   color: #566265;
 }
