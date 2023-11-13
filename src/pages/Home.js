@@ -4,44 +4,31 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import React, { useState, useRef } from "react";
+import animationData from './animacao2.json';
+import animationData2 from './animacao3.json';
+import Lottie from "lottie-react";
+
 
 export default function Home() {
-    const handleMouseMove = (event) => {
-        const btn = event.currentTarget;
-        const effect = btn.querySelector('.hover-effect');
-        const rect = btn.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        effect.style.left = x + 'px';
-        effect.style.top = y + 'px';
-    };
-
-    const handleMouseOut = (event) => {
-        const effect = event.currentTarget.querySelector('.hover-effect');
-        effect.style.left = '50%';
-        effect.style.top = '50%';
-    };
     return (
         <>
             <NavBarr />
             <Container fluid className="p-5">
-                <Row className="align-items-center" style={{ minHeight: '80vh' }}>
-                    <Col md={6}>
-                        <Image src="/foto.png" alt="Education & Tech" fluid />
+                <Row className="align-items-center" >
+                    <Col md={4} >
+                        <Lottie className='animacao' animationData={animationData} />
                     </Col>
-                    <Col md={6}>
+                    <Col md={8} className="align-items-center text-center">
+                        <h1 className="titleHome">
+                            Desenvolva Seu
+                            <span className="futuro"> Futuro</span>, <br></br>Codifique com Confiança!</h1>
                         <Button
-                            className="gradient-btn"
-                            onMouseMove={handleMouseMove}
-                            onMouseOut={handleMouseOut}
-                            style={{ minHeight: '60vh', minWidth: '60vh', fontSize:100 }}
+                            className="hover-effect"
+                            style={{ minHeight: '10vh', minWidth: '10vh', fontSize: 20 }}
                         >
                             Let's get started!
-                            <span className="hover-effect"></span>
                         </Button>
+                        
                     </Col>
                 </Row>
             </Container>

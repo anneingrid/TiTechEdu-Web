@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -13,7 +17,6 @@
   color: white;
 }
 
-
 .App-link {
   color: #61dafb;
 }
@@ -22,21 +25,22 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-#menu{
+#menu {
   cursor: pointer;
 }
 
-.linkOffCanvas{
+.linkOffCanvas {
   text-decoration: none;
   color: white;
 }
 
-.footerr{
+.footerr {
   background-color: #21081a !important;
 
 }
@@ -47,29 +51,22 @@
   border: none;
   outline: none;
   color: white;
-  background: #0034a3; /* fallback for browsers that don't support gradients */
+  background: #0034a3;
+  /* fallback for browsers that don't support gradients */
   transition: all 0.3s ease;
   transform: scale(1);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   border-radius: 25px;
-  display: inline-block; /* This is needed for the transform to work correctly */
+  display: inline-block;
+  /* This is needed for the transform to work correctly */
 }
 
 .gradient-btn:hover {
-  background: #021166; /* color when the cursor is at the end of the button */
-  transform: scale(1.05); /* slightly increase size */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* add shadow */
+  background: #021166;
+  /* color when the cursor is at the end of the button */
+  transform: scale(1.05);
+  /* slightly increase size */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  /* add shadow */
 }
 
-.perfil-container {
-  margin-top: 20px;
-}
-
-.form-label {
-  font-weight: bold;
-}
-
-.form-input {
-  width: 100%;
-  max-width: 300px; /* Ajuste o tamanho desejado */
-}

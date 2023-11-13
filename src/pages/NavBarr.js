@@ -9,7 +9,7 @@ export default function NavBarr() {
     const handleShow = () => setShow(true);
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar bg="dark"  data-bs-theme="dark">
                 <Container>
                     <i id='menu' className="bi bi-list text-white me-2" onClick={handleShow} style={{ fontSize: 25 }}></i>
                     {/* <img src="/logo.png"
@@ -22,6 +22,7 @@ export default function NavBarr() {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/cursos">Cursos</Nav.Link>
                         <Nav.Link href="/forum">Fórum</Nav.Link>
+                        <Nav.Link href="/exercicios">Exercícios</Nav.Link>
                     </Nav>
                     <Nav >
                         <Nav.Link href="#perfil">
@@ -67,6 +68,13 @@ export default function NavBarr() {
                             <Link to="/linkedin" className='linkOffCanvas'>
                                 <i className="bi bi-rocket-takeoff p-2" style={{ fontSize: 25 }}></i>
                                 <span className=" p-2">Vagas disponíveis</span>
+                                <hr></hr>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link to="/exercicios" className='linkOffCanvas'>
+                                <i className="bi bi-book p-2" style={{ fontSize: 25 }}></i>
+                                <span className=" p-2">Exercícios</span>
                                 <hr></hr>
                             </Link>
                         </div>
