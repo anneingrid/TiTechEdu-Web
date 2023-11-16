@@ -4,8 +4,16 @@ import { Container, Row, Col, Image, Form } from 'react-bootstrap';
 import Footerr from './Footerr';
 import NavBarr from './NavBarr';
 import Button from 'react-bootstrap/Button';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Perfil() {
+    const navigate = useNavigate();
+
+    function sair() {
+        localStorage.removeItem('userId');
+        navigate('/');
+    }
+
     return (
         <>
             <NavBarr></NavBarr>
@@ -60,7 +68,15 @@ export default function Perfil() {
                         </Col>
                     </Row>
                 </Form>
-                <Button variant="success">Salvar Alteração</Button>{' '}
+                <Row className="mt-3">
+                    <Col xs={12} md={6}>
+                        <Button variant="success">Salvar Alteração</Button>
+                    </Col>
+
+                    <Col xs={12} md={6}>
+                        <Button variant="danger" onClick={sair}>Sair da Conta</Button>
+                    </Col>
+                </Row>
             </Container>
 
             <Footerr></Footerr>
