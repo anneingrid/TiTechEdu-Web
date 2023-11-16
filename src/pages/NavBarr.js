@@ -1,15 +1,46 @@
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function NavBarr() {
     const [show, setShow] = useState(false);
+    const [usuario, setUsuario] = useState('');
+
+    useEffect(() => {
+        const buscaUsuario = () => {
+            const usuario = localStorage.getItem("userId");
+            const id = parseInt(usuario);
+
+            fetch('http://localhost:3001/usuario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na resposta do servidor');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    setUsuario(data.nomeUsuario);
+                    console.log(data.nomeUsuario);
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        };
+
+        buscaUsuario();
+    }, []);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
         <>
-            <Navbar bg="dark"  data-bs-theme="dark">
+            <Navbar bg="dark" data-bs-theme="dark">
                 <Container>
                     <i id='menu' className="bi bi-list text-white me-2" onClick={handleShow} style={{ fontSize: 25 }}></i>
                     {/* <img src="/logo.png"
@@ -25,9 +56,9 @@ export default function NavBarr() {
                         <Nav.Link href="/exercicios">Exercícios</Nav.Link>
                     </Nav>
                     <Nav >
-                        <Nav.Link href="#perfil">
+                        <Nav.Link href="/perfil">
                             <i className="bi bi-person-circle text-white" style={{ fontSize: 25 }}></i>
-                            <span className='ms-2'>Olá, Nome da pessoa</span>
+                            <span className='ms-2'>Olá, {usuario} </span>
                         </Nav.Link>
                     </Nav>
                 </Container>

@@ -5,24 +5,33 @@ import animationData from './animacaoEscolhas.json';
 import Lottie from "lottie-react";
 
 function Escolhas() {
-    const [interesses, setInteresses] = useState([]);
+    const [interesse1, setInteresse1] = useState('');
+    const [interesse2, setInteresse2] = useState('');
+    const [interesse3, setInteresse3] = useState('');
+    const [interesse4, setInteresse4] = useState('');
     const [experiencia, setExperiencia] = useState('');
     const navegacao = useNavigate();
 
-    const mudancaInteresse = (event) => {
-        const interesseSelecionado = event.target.value;
-        if (interesses.includes(interesseSelecionado)) {
-            setInteresses(interesses.filter(interesse => interesse !== interesseSelecionado));
-        } else {
-            setInteresses([...interesses, interesseSelecionado]);
-        }
-    };
 
     const salvar = (event) => {
         event.preventDefault();
-        console.log('Preferências:', { interesses, experiencia });
-        navegacao('/home');
+        const usuario = localStorage.getItem("userId") 
+        fetch('http://localhost:3001/preferencia', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ interesse1, interesse2, interesse3, interesse4, experiencia, usuario}),
+        })
+            .then(data => {
+                console.log('Success:', data);
+                navegacao('/home');
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
     };
+
 
     return (
         <Row className="vh-100 m-0">
@@ -43,25 +52,25 @@ function Escolhas() {
                                 type="checkbox"
                                 label="WEB"
                                 value="web"
-                                onChange={mudancaInteresse}
+                                onChange={(e) => setInteresse1(e.target.value)}
                             />
                             <Form.Check
                                 type="checkbox"
                                 label="Design Gráfico"
                                 value="design"
-                                onChange={mudancaInteresse}
+                                onChange={(e) => setInteresse2(e.target.value)}
                             />
                             <Form.Check
                                 type="checkbox"
                                 label="Banco de Dados"
                                 value="banco"
-                                onChange={mudancaInteresse}
+                                onChange={(e) => setInteresse3(e.target.value)}
                             />
                             <Form.Check
                                 type="checkbox"
                                 label="Inteligencia Artificial"
                                 value="ia"
-                                onChange={mudancaInteresse}
+                                onChange={(e) => setInteresse4(e.target.value)}
                             />
                         </FormGroup>
                         <FormLabel>Qual é o seu nível de experiência?</FormLabel>

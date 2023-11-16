@@ -82,7 +82,7 @@ body {
   /* add shadow */
 }
 
-.cardCurso {
+.card {
   text-align: center;
   align-items: center;
   padding: 3%;
@@ -92,19 +92,19 @@ body {
   cursor: pointer;
 }
 
-.cardCurso:hover {
+.card:hover {
   background-color: #dbebf5;
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 
-.cardCurso img {
+.card img {
   width: 40px !important;
   padding-top: 7%;
 }
 
-.cardCurso-text {
+.card-text {
   font-size: 16px;
   color: #566265;
 }
