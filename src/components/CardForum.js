@@ -1,19 +1,27 @@
 
+import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 
-export default function CardForum() {
+export default function CardForum({ pergunta }) {
+
     return (
         <>
 
             <Card style={{ width: 'auto', marginTop: '2rem' }} className="cardForum " bg={"info"} text='light'>
                 <Card.Body>
-                    <Card.Title ><b>Card Title</b></Card.Title>
+                    <Card.Title ><b>{pergunta.titulo}</b></Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        {pergunta.descricao}
                     </Card.Text>
-                    <Card.Link href="#">Mais</Card.Link>
+
+                    <Link to={`${pergunta.id}`} className='botaoExpandirTop'>
+                        <Button className='botaoExpandir'>
+                            <i class="bi bi-arrows-fullscreen bold-icon"></i>
+                        </Button>
+
+                    </Link>
                 </Card.Body>
             </Card>
 

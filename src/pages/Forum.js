@@ -2,7 +2,7 @@ import { Button, Container } from "react-bootstrap";
 import NavBarr from "./NavBarr";
 import CardForum from "../components/CardForum";
 import ModalPergunta from "../components/ModalPergunta";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 export default function Forum() {
@@ -15,6 +15,35 @@ export default function Forum() {
     const handleCloseModal = () => {
         setShowModal(false);
     };
+    const [perguntas, setPerguntas] = useState([]);
+
+    useEffect(() => {
+        const buscaPerguntas = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/perguntas', {
+                    method: 'GET',
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erro na requisição: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                setPerguntas(data);
+        
+            } catch (error) {
+                alert(error.message);
+                console.error('Erro:', error);
+            }
+        };
+
+        buscaPerguntas();
+    }, []);
+
+
+
+
 
     return (
         <>
@@ -23,7 +52,18 @@ export default function Forum() {
                 <h1 className="text-light">
                     Fórum
                 </h1>
-                <CardForum />
+
+                {perguntas.length > 0 ? (
+                    perguntas.map((pergunta) => (
+
+                        <CardForum
+                            key={pergunta.id}
+                            pergunta={pergunta}
+                        />
+                    ))
+                ) : (
+                    <p>Nenhuma pergunta encontrada.</p>
+                )};
 
             </Container>
             <ModalPergunta />

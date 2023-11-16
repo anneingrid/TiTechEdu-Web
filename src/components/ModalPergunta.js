@@ -110,6 +110,7 @@ export default function ModalPergunta() {
                                 aria-label="Default select example"
                                 value={cursoRelacionado}
                                 onChange={(e) => setCursoRelacionado(e.target.value)}>
+                                
                                 <option value="0">Selecione</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
