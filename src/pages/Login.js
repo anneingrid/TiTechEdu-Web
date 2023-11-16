@@ -21,20 +21,21 @@ function Login() {
             body: JSON.stringify({ email, senha }),
         })
             .then(async response => {
-                const text = await response.text();
+                const data = await response.json(); // 
                 if (!response.ok) {
-                    throw new Error(text);
+                    throw new Error(data.message || 'Erro no login');
                 }
-                return text;
+                return data;
             })
-            .then(() => {
+            .then((data) => {
+                localStorage.setItem('userId', data.idUsuario);
                 navegacao('/home');
             })
             .catch((error) => {
                 alert(error.message);
             });
-    }
 
+    }
 
     return (
         <Row className="vh-100 m-0">
