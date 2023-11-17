@@ -16,6 +16,7 @@ import Login from './pages/Login';
 import Tarefas from './pages/Tarefas';
 import Exercicio from './pages/Exercicio';
 import Escolhas from './pages/Escolhas';
+import CursoDetalhes from './pages/CursoDetalhes';
 import Pergunta from './pages/Pergunta';
 
 const roteador = createBrowserRouter([
@@ -28,6 +29,8 @@ const roteador = createBrowserRouter([
   {path: '/cursos', element: <Cursos/>},
   {path: '/linkedin', element: <Vagas/>},
   {path: '/exercicios', element: <Tarefas/>},
+  {path: '/exercicios/:id', element: <Exercicio />},
+  {path: '/cursos/:id', element:<CursoDetalhes/>},
   {path: '/exercicios/:id', element: <Exercicio />},
   {path: '/forum/:id', element: <Pergunta />}
 ]);

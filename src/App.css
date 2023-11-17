@@ -142,7 +142,7 @@ body {
 .botao-buscar {
   height: 50px;
   width: 120px;
-  background-color: rgb(16, 97, 196);
+  background-color: #002967;
 }
 
 .carousel-control-prev,
@@ -244,4 +244,53 @@ main {
 
 .animacaoTamanho {
   height: 45rem;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.botaoDoc {
+  width: auto;
+  height: auto;
+  background-color: #0f9af7;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 15px;
+  animation: blink 1.5s 2; 
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.detalhesCurso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  background-color: #002967;
+  height: 70px;
+}
+
+.iframe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transcricaoCurso {
+  display: flex;
+
+  color: white;
+  margin-top: 10px;
+  height: 70px;
 }
