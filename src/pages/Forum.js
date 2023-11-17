@@ -9,7 +9,6 @@ export default function Forum() {
     const [perguntas, setPerguntas] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
-
     const abrirModal = () => {
         setShowModal(true);
     };
@@ -43,6 +42,7 @@ export default function Forum() {
     }, []);
 
 
+    
 
 
 
@@ -51,7 +51,6 @@ export default function Forum() {
             <NavBarr />
 
             <Container style={{ marginTop: '2rem' }}>
-
                 <Row className="mt-5">
                     <Col md={11}>
                         <h1 className="text-white" style={{ fontSize: 30 }}>Comunidade </h1>
@@ -59,7 +58,7 @@ export default function Forum() {
                     <Col className="d-flex justify-content-end" md={1}>
                         <ModalPergunta />
                     </Col>
-                </Row> 
+                </Row>
 
                 {perguntas.length > 0 ? (
                     perguntas.map((pergunta) => (

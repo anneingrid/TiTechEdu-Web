@@ -48,6 +48,11 @@ body {
 .botaoAddPergunta{
   display: flex;
   justify-content: flex-end;
+
+}
+
+.botaoAddPergunta:hover i {
+  text-shadow: #3498db;
 }
 
 .addPergunta{
@@ -62,14 +67,16 @@ body {
 
 .botaoExpandir{
   border-radius: 100%;
-  background-color: #ffffff;
-  border-color: #c4c4c400 !important;
-  color: #49c8ee;
+
   font-weight: bolder;
 }
+
 .botaoExpandirTop{
   display: flex;
   justify-content: flex-end;
+}
+.botaoExpandir:hover{
+  color: #49c8ee;
 }
 
 .gradient-btn {
@@ -202,10 +209,12 @@ main {
 
 .titleHome {
   color: #dddddd;
-  font-family: 'Staatliches', sans-serif;
   text-align: center;
   font-size: 60px;
   text-shadow: 2px 2px 10px #3498db;
+  text-transform: uppercase;
+  font-weight: bold; /* Adiciona negrito */
+  letter-spacing: -2px; /* Diminui o espaçamento entre as letras */
 }
 
 .futuro {
@@ -294,3 +303,5 @@ main {
   margin-top: 10px;
   height: 70px;
 }
+
+

@@ -55,7 +55,7 @@ export default function Pergunta() {
 
     const salvar = async (event) => {
         event.preventDefault();
-    
+
         try {
             const response = await fetch('http://localhost:3001/comentario', {
                 method: 'POST',
@@ -64,14 +64,14 @@ export default function Pergunta() {
                 },
                 body: JSON.stringify({ descricao, id }),
             });
-    
+
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Erro na requisição');
             }
-    
+
             const novoComentario = await response.json();
-    
+
             // Atualize o estado local dos comentários para incluir o novo comentário
             setPergunta((prevPergunta) => ({
                 ...prevPergunta,
@@ -85,13 +85,13 @@ export default function Pergunta() {
                     inputElement.value = '';
                 }
             }
-            
+
         } catch (error) {
             alert(error.message);
             console.error('Erro:', error);
         }
     };
-    
+
 
     return (
         <div className="pergunta h-100">
@@ -101,7 +101,7 @@ export default function Pergunta() {
                     <Row>
                         <Col >
 
-                            <Card className="mt-5 text-white"  bg={"info"} >
+                            <Card className="mt-5 text-white" bg={"info"} >
                                 <Card.Body>
                                     <div style={{ display: 'flex' }}>
                                         <Row className="me-auto align-items-center mb-1">
@@ -128,9 +128,23 @@ export default function Pergunta() {
                                     <h1 className="text-white" style={{ fontSize: 25 }}>Comentários </h1>
                                 </Col>
                                 <Col className="d-flex justify-content-end">
-                                    <i className="bi bi-plus-circle text-white "
-                                        style={{ fontSize: 25, cursor: 'pointer' }}
-                                        onClick={scrollToBottom}></i>
+
+                                    <Button
+                                        variant="outline-light"
+                                        onClick={scrollToBottom}
+                                        style={{
+                                            fontSize: 25,
+                                            cursor: 'pointer',
+                                            borderRadius: '100%', // Ajuste conforme necessário
+                                            width: 40,
+                                            height: 40, // Igual à largura para tornar o botão quadrado
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        +
+                                    </Button>
                                 </Col>
                             </Row>
 
@@ -180,10 +194,10 @@ export default function Pergunta() {
                                         onChange={(e) => setDescricao(e.target.value)}
                                     />
                                 </FloatingLabel>
-                                <Button variant="light" 
-                                className="mt-3 mb-1"
-                                style={{ height: '100px',  }}
-                                onClick={salvar}><i className="bi bi-send text-black"></i></Button>
+                                <Button variant="light"
+                                    className="mt-3 mb-1"
+                                    style={{ height: '100px', }}
+                                    onClick={salvar}><i className="bi bi-send text-black"></i></Button>
 
                             </InputGroup>
 

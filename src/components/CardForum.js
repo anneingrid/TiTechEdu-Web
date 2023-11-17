@@ -17,8 +17,8 @@ export default function CardForum({ pergunta }) {
                     </Card.Text>
 
                     <Link to={`${pergunta.id}`} className='botaoExpandirTop'>
-                        <Button className='botaoExpandir'>
-                            <i class="bi bi-arrows-fullscreen bold-icon"></i>
+                        <Button className='botaoExpandir' variant="outline-light">
+                            <i class="bi bi-search bold-icon"></i>
                         </Button>
 
                     </Link>

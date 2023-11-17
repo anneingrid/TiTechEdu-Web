@@ -43,14 +43,15 @@ export default function NavBarr() {
             <Navbar bg="dark" data-bs-theme="dark">
                 <Container>
                     <i id='menu' className="bi bi-list text-white me-2" onClick={handleShow} style={{ fontSize: 25 }}></i>
-                    {/* <img src="/logo.png"
-                        width="30"
-                        height="30"
+                    <img src="/logoNav.png"
+                        width="50"
+                        height="27,30"
                         className="d-inline-block align-top"
-                        alt="Ti Tech Edu logo"></img> */}
-                    <Navbar.Brand href="/">Ti Tech Edu</Navbar.Brand>
+                        alt="Ti Tech Edu logo"
+                        href="/home"></img>
+                    {/* <Navbar.Brand href="/">Ti Tech Edu</Navbar.Brand> */}
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/home">Home</Nav.Link>
                         <Nav.Link href="/cursos">Cursos</Nav.Link>
                         <Nav.Link href="/forum">Fórum</Nav.Link>
                         <Nav.Link href="/exercicios">Exercícios</Nav.Link>
