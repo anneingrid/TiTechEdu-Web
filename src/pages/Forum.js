@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import NavBarr from "./NavBarr";
 import CardForum from "../components/CardForum";
 import ModalPergunta from "../components/ModalPergunta";
@@ -6,38 +6,39 @@ import { useState, useEffect } from "react";
 
 
 export default function Forum() {
+    const [perguntas, setPerguntas] = useState([]);
     const [showModal, setShowModal] = useState(false);
+
 
     const abrirModal = () => {
         setShowModal(true);
     };
 
     const handleCloseModal = () => {
-        setShowModal(false);
+        setShowModal(false);;
     };
-    const [perguntas, setPerguntas] = useState([]);
+
+    const buscaPerguntas = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/perguntas', {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            setPerguntas(data);
+
+        } catch (error) {
+            alert(error.message);
+            console.error('Erro:', error);
+        }
+    };
 
     useEffect(() => {
-        const buscaPerguntas = async () => {
-            try {
-                const response = await fetch('http://localhost:3001/perguntas', {
-                    method: 'GET',
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Erro na requisição: ${response.status}`);
-                }
-
-                const data = await response.json();
-
-                setPerguntas(data);
-        
-            } catch (error) {
-                alert(error.message);
-                console.error('Erro:', error);
-            }
-        };
-
         buscaPerguntas();
     }, []);
 
@@ -48,10 +49,17 @@ export default function Forum() {
     return (
         <>
             <NavBarr />
+
             <Container style={{ marginTop: '2rem' }}>
-                <h1 className="text-light">
-                    Fórum
-                </h1>
+
+                <Row className="mt-5">
+                    <Col md={11}>
+                        <h1 className="text-white" style={{ fontSize: 30 }}>Comunidade </h1>
+                    </Col>
+                    <Col className="d-flex justify-content-end" md={1}>
+                        <ModalPergunta />
+                    </Col>
+                </Row> 
 
                 {perguntas.length > 0 ? (
                     perguntas.map((pergunta) => (
@@ -66,7 +74,7 @@ export default function Forum() {
                 )};
 
             </Container>
-            <ModalPergunta />
+
 
         </>
     );

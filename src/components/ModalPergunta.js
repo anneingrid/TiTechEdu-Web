@@ -24,14 +24,17 @@ export default function ModalPergunta() {
             body: JSON.stringify({ titulo, descricao, cursoRelacionado }),
         })
             .then(data => {
+
                 console.log('Success:', data);
                 setAlertMessage('Pergunta cadastrada com sucesso!');
                 setShowAlert(true);
                 setShowModal(false);
 
-                // setTimeout(() => {
-                //     setShowAlert(false);
-                // }, 3000);
+                setTimeout(() => {
+                    window.location.reload();
+                    setShowAlert(false);
+
+                }, 3000);
             })
             .catch((error) => {
                 alert(error.message);
@@ -66,12 +69,15 @@ export default function ModalPergunta() {
 
     return (
         <>
-            <div className="botaoAddPergunta" style={{ marginTop: '2rem' }}>
-                <Button className="addPergunta" variant="outline-light" size="lg" onClick={abrirModal}><b>+</b></Button>
+            <div className="botaoAddPergunta  d-flex justify-content-end" >
+                
+                    <i className="bi bi-plus-circle text-white "
+                        onClick={abrirModal} style={{ fontSize: 30, cursor: 'pointer' }}
+                    ></i>
+                    
             </div>
             <div
                 className="modal show"
-                style={{ display: 'block', position: 'initial' }}
             ></div>
 
             <Modal show={showModal} onHide={handleCloseModal} size="lg">
@@ -110,7 +116,7 @@ export default function ModalPergunta() {
                                 aria-label="Default select example"
                                 value={cursoRelacionado}
                                 onChange={(e) => setCursoRelacionado(e.target.value)}>
-                                
+
                                 <option value="0">Selecione</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -121,7 +127,7 @@ export default function ModalPergunta() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={salvar} >
+                    <Button variant="info" onClick={salvar} className='text-white'>
                         Enviar
                     </Button>
                 </Modal.Footer>

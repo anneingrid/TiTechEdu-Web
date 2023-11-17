@@ -9,7 +9,7 @@ export default function CardForum({ pergunta }) {
     return (
         <>
 
-            <Card style={{ width: 'auto', marginTop: '2rem' }} className="cardForum " bg={"info"} text='light'>
+            <Card style={{ width: 'auto', marginTop: '1rem' }} className="cardForum " bg={"info"} text='light'>
                 <Card.Body>
                     <Card.Title ><b>{pergunta.titulo}</b></Card.Title>
                     <Card.Text>
