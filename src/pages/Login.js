@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import animationData from './animacaoLoginCadastro.json';
-import Lottie from "lottie-react";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -67,7 +65,7 @@ function Login() {
                 </Container>
             </Col>
             <Col md={6} className="d-flex justify-content-center align-items-center">
-                <Lottie className='animacaoTamanho' animationData={animationData} />
+                <img src='logoNav.png'></img>
             </Col>
         </Row>
     );
