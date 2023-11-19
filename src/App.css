@@ -45,7 +45,7 @@ body {
 
 }
 
-.botaoAddPergunta{
+.botaoAddPergunta {
   display: flex;
   justify-content: flex-end;
 
@@ -55,27 +55,29 @@ body {
   text-shadow: #3498db;
 }
 
-.addPergunta{
+.addPergunta {
   border-radius: 100%;
   position: fixed;
 
 }
+
 .bold-icon {
   font-weight: bold;
 }
 
 
-.botaoExpandir{
+.botaoExpandir {
   border-radius: 100%;
 
   font-weight: bolder;
 }
 
-.botaoExpandirTop{
+.botaoExpandirTop {
   display: flex;
   justify-content: flex-end;
 }
-.botaoExpandir:hover{
+
+.botaoExpandir:hover {
   color: #49c8ee;
 }
 
@@ -195,7 +197,6 @@ body {
 }
 
 .footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   background-color: #212429;
@@ -213,8 +214,10 @@ main {
   font-size: 60px;
   text-shadow: 2px 2px 10px #3498db;
   text-transform: uppercase;
-  font-weight: bold; /* Adiciona negrito */
-  letter-spacing: -2px; /* Diminui o espaçamento entre as letras */
+  font-weight: bold;
+  /* Adiciona negrito */
+  letter-spacing: -2px;
+  /* Diminui o espaçamento entre as letras */
 }
 
 .futuro {
@@ -259,9 +262,11 @@ main {
   0% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -274,7 +279,7 @@ main {
   border-radius: 16px;
   text-align: center;
   font-size: 15px;
-  animation: blink 1.5s 2; 
+  animation: blink 1.5s 2;
   margin-left: 20px;
   font-size: 16px;
 }
@@ -303,5 +308,3 @@ main {
   margin-top: 10px;
   height: 70px;
 }
-
-
