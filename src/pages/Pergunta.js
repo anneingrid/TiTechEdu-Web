@@ -99,17 +99,17 @@ export default function Pergunta() {
                 <div >
                     <Row>
                         <Col >
-                            <Card className="mt-5 text-black"  style={{backgroundColor: "#e3e5e8"}} >
+                            <Card className="mt-5" style={{ backgroundColor: "#041017", border: '0.5px solid #0a253f', color: '#dbf8fe' }} >
                                 <Card.Body>
                                     <div style={{ display: 'flex' }}>
                                         <Row className="me-auto align-items-center mb-1">
                                             <Col >
-                                                <Card.Title className="text-center " style={{ margin: 1 }}><b>{pergunta.titulo}</b></Card.Title>
+                                                <Card.Title className="text-center text-white" style={{ margin: 1 }}><b>{pergunta.titulo}</b></Card.Title>
                                             </Col>
                                         </Row>
                                     </div>
 
-                                    <Card.Text style={{ color: 'black', fontSize: 12 }} >Data:{formattedDate}</Card.Text>
+                                    <Card.Text style={{ color: '#dbf8fe', fontSize: 12 }} >Data:{formattedDate}</Card.Text>
                                     <hr style={{ margin: 2, color: '#49c8ee' }}></hr>
                                     <Card.Text>{pergunta.descricao}</Card.Text>
                                 </Card.Body>
@@ -133,9 +133,9 @@ export default function Pergunta() {
                                         style={{
                                             fontSize: 25,
                                             cursor: 'pointer',
-                                            borderRadius: '100%', 
+                                            borderRadius: '100%',
                                             width: 40,
-                                            height: 40, 
+                                            height: 40,
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -183,19 +183,20 @@ export default function Pergunta() {
                                     ref={floatingLabelRef}
                                     label="Deixe seu comentário:"
                                     className="mt-3 mb-1"
-                                    style={{ color: '#153c47', marginBottom: '0rem' }}
+                                    style={{ marginBottom: '0rem', color: '#dbf8fe' }}
                                 >
                                     <Form.Control
                                         type="text"
                                         placeholder="name@example.com"
-                                        style={{ height: '100px', backgroundColor: '#b6e9f8' }}
+                                        style={{ height: '100px', backgroundColor: "#041017", border: '0.5px solid #0a253f', color: '#dbf8fe'}}
                                         onChange={(e) => setDescricao(e.target.value)}
                                     />
                                 </FloatingLabel>
-                                <Button variant="light"
+                                <Button
+                                    variant="dark"
                                     className="mt-3 mb-1"
-                                    style={{ height: '100px', }}
-                                    onClick={salvar}><i className="bi bi-send text-black"></i></Button>
+                                    style={{ height: '100px', backgroundColor: '#0a253f', border: '0.5px solid #0a253f' }}
+                                    onClick={salvar}><i className="bi bi-send text-white"></i></Button>
 
                             </InputGroup>
 

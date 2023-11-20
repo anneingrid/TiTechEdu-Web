@@ -42,7 +42,7 @@ export default function ModalPergunta() {
                 setTimeout(() => {
                     window.location.reload();
                     setShowAlert(false);
-                }, 3000);
+                }, 2000);
             })
             .catch((error) => {
                 alert(error.message);
