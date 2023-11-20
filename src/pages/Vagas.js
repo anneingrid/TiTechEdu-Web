@@ -30,7 +30,7 @@ export default function Vagas() {
     },
     {
       linkVaga:
-        "https://www.turing.com/pt/jobs/desenvolvedor-c-remoto?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "https://www.turing.com/pt/jobs/desenvolvedor-c-remoto?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organicgit",
       imagemVaga:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6rGChs-3HBqRPulfLo4-_2uO_gWol6U1OAmgb01Y&s",
       nomeVaga: "Vagas C | Ganhe em Dólar | Turing Jobs",
@@ -58,7 +58,7 @@ export default function Vagas() {
       <div className="vaga-flex">
         <div className="Vagas-animation">
           <Lottie className="animacaoVaga" animationData={animationData} />
-          <h1>
+          <h1 className="vagas-titulo">
             Embarque e<br></br>
             <span className="Explore">Explore</span> novas vagas
           </h1>
@@ -67,17 +67,21 @@ export default function Vagas() {
           <ul className="lista-vagas">
             {listaVagas.map((vaga, index) => (
               <li style={{ "--i": index + 1 }} key={index}>
-                <img src={vaga.imagemVaga} alt="Imagem da empresa da Vaga" />
+                <img
+                  src={vaga.imagemVaga}
+                  alt="Imagem da empresa da Vaga"
+                  className="vagas-imagem"
+                />
                 <div className="content">
-                  <h4>{vaga.nomeVaga}</h4>
-                  <p>
+                  <h4 className="vaga-titulo">{vaga.nomeVaga}</h4>
+                  <p className="vaga-texto">
                     {vaga.empresalVaga} <span>{vaga.localVaga}</span>
                   </p>
-                  <p>{vaga.descricaoVaga}</p>
+                  <p className="vaga-descricao">{vaga.descricaoVaga}</p>
                 </div>
-                <div className="container-botao">
+                <div className="vagas-container-botao">
                   <a
-                    className="button"
+                    className="vagas-button"
                     href={vaga.linkVaga}
                     target="_blank"
                     rel="noreferrer"

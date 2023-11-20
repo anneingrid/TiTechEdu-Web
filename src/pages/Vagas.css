@@ -1,12 +1,5 @@
 /*CSS VAGAS PAGE*/
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
 .vaga-flex {
   display: flex;
   flex-wrap: wrap;
@@ -14,7 +7,7 @@
   margin-left: 60px;
 }
 
-h1 {
+.vagas-titulo {
   margin-top: 10px;
   color: #dddddd;
   text-align: center;
@@ -37,7 +30,7 @@ h1 {
   height: 84.8vh;
 }
 
-ul {
+.lista-vagas {
   position: relative;
   transform-style: preserve-3d;
   perspective: 500px;
@@ -48,7 +41,7 @@ ul {
   margin-bottom: 148px;
 }
 
-ul li {
+.lista-vagas li {
   position: relative;
   list-style: none;
   width: 700px;
@@ -65,45 +58,45 @@ ul li {
   transition-delay: calc(var(--i) * 0.05s);
 }
 
-ul li:nth-child(1) {
+.lista-vagas li:nth-child(1) {
   transform: translateZ(-75px) translateY(20px);
   opacity: 0.6;
 }
 
-ul li:nth-child(3) {
+.lista-vagas li:nth-child(3) {
   transform: translateZ(75px) translateY(-30px);
 }
 
-ul li:nth-child(4) {
+.lista-vagas li:nth-child(4) {
   transform: translateZ(150px) translateY(-75px);
 }
 
-ul:hover {
+.lista-vagas:hover {
   gap: 30px;
 }
 
-ul:hover li {
+.lista-vagas:hover li {
   opacity: 1;
   transform: translateZ(0px) translateY(0px);
 }
 
-ul li img {
+.lista-vagas li img {
   max-width: 80px;
   border-radius: 50%;
   margin-left: 15px;
 }
 
-ul li .content {
+.lista-vagas li .content {
   width: 100%;
   cursor: pointer;
 }
 
-ul li .content h4 {
+.lista-vagas li .content h4 {
   font-size: 15px;
   color: #76d2f7;
 }
 
-ul li .content p {
+.lista-vagas li .content p {
   position: relative;
   color: #76d2f7;
   line-height: 1em;
@@ -111,11 +104,11 @@ ul li .content p {
   font-size: 12px;
 }
 
-ul li .content p span {
+.lista-vagas li .content p span {
   font-size: 10px;
 }
 
-.button {
+.vagas-button {
   text-decoration: none;
   position: relative;
   display: inline-block;
@@ -130,7 +123,7 @@ ul li .content p span {
   margin-right: 15px;
 }
 
-.button:hover {
+.vagas-button:hover {
   background-color: #76d2f7;
   color: #050801;
   box-shadow: 0 0 5px #76d2f7 0 0 25px #76d2f7 0 0 50px #76d2f7 0 0 200px
@@ -138,12 +131,12 @@ ul li .content p span {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
-.button span {
+.vagas-button span {
   position: absolute;
   display: block;
 }
 
-.button span:nth-child(1) {
+.vagas-button span:nth-child(1) {
   top: 0;
   left: 0;
   width: 100%;
@@ -161,7 +154,7 @@ ul li .content p span {
   }
 }
 
-.button span:nth-child(2) {
+.vagas-button span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 1px;
@@ -180,7 +173,7 @@ ul li .content p span {
   }
 }
 
-.button span:nth-child(3) {
+.vagas-button span:nth-child(3) {
   bottom: 0;
   right: 0;
   width: 100%;
@@ -199,7 +192,7 @@ ul li .content p span {
   }
 }
 
-.button span:nth-child(4) {
+.vagas-button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 1px;
@@ -218,7 +211,7 @@ ul li .content p span {
   }
 }
 
-img {
+.vagas-imagem {
   width: 80px;
   display: block;
   border-radius: 50%;
@@ -227,20 +220,10 @@ img {
   margin-left: 40px;
 }
 
-p {
+.vaga-texto {
   margin: 0px;
   font-size: 14px;
   margin-bottom: 10px;
-}
-
-span {
-  margin-left: 10px;
-}
-
-h2 {
-  margin: 0px;
-  margin-top: 10px;
-  margin-bottom: 5px;
 }
 
 .animacaoVaga {
