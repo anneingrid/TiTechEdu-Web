@@ -8,25 +8,47 @@ export default function Vagas() {
   let listaVagas = [
     {
       linkVaga:
-        "https://br.linkedin.com/jobs/view/coordenador-de-ti-palmas-to-at-ultra-apoio-ltda-3649602819?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "https://br.linkedin.com/jobs/view/desenvolvedor-front-end-wordpress-home-office-at-netvagas-3769151403?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
       imagemVaga:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR76Ho4gXpYv-W7PdQVOt_XzbNyJ5z_d61SdLCi&s=0",
-      nomeVaga: "Coordenador de TI",
-      empresalVaga: "ULTRA APOIO LTDA",
-      localVaga: "Palmas, TO",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_FT1TjjfButeY0KVylqZuN4gHoSrFsfPP10cG5Zk&s",
+      nomeVaga: "Desenvolvedor front end wordpress home office",
+      empresalVaga: "Netvagas",
+      localVaga: "Qualquer lugar",
       descricaoVaga:
-        "Atividades Coordenador de TI Suporte técnico e treinamento para sistemas e redes; Comunicação entre a equipe de suporte e usuários internos.",
+        "Formação em Sistemas de Informação ou áreas correlacionadas. Domínio de HTML, CSS e JavaScrip...",
     },
     {
       linkVaga:
-        "https://br.linkedin.com/jobs/view/analista-de-suporte-n%C3%ADvel-1-at-crp-tecnologia-3733651992?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "https://glassdoor.com.br/job-listing/analista-de-ti-sistemas-mainframe-volkswagen-do-brasil-JV_IC2481826_KO0,33_KE34,54.htm?jl=1008985241412&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
       imagemVaga:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjeAhi9wD7JMrPtypoFz049Oe9IKYDZ2aBna-G&s=0",
-      nomeVaga: "Analista de Suporte Nível 1",
-      empresalVaga: "CRP Tecnologia",
-      localVaga: "Palmas, TO",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEfirdFS0HQDyBKLzWv_1uCGHplDMhzkd3Dq9FVgg&s",
+      nomeVaga: "Analista de TI - Sistemas Mainframe",
+      empresalVaga: "Volkswagen do Brasil",
+      localVaga: "Qualquer lugar",
       descricaoVaga:
-        "Estamos em busca de um Analista de Suporte Técnico N1 altamente motivado e qualificado para se juntar à nossa equipe.",
+        "O candidato será responsável técnico pelos Sistemas Mainframe da Volkswagen do Brasil por meio de análise... ",
+    },
+    {
+      linkVaga:
+        "https://www.turing.com/pt/jobs/desenvolvedor-c-remoto?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      imagemVaga:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6rGChs-3HBqRPulfLo4-_2uO_gWol6U1OAmgb01Y&s",
+      nomeVaga: "Vagas C | Ganhe em Dólar | Turing Jobs",
+      empresalVaga: "Turing.com",
+      localVaga: "Qualquer lugar",
+      descricaoVaga:
+        "Nós, da Turing, estamos procurando preencher vagas C, onde os desenvolvedores experientes irão projetar...",
+    },
+    {
+      linkVaga:
+        "https://glassdoor.com.br/job-listing/it-analyst-i-santander-JV_IC2479061_KO0,12_KE13,22.htm?jl=1008986354942&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      imagemVaga:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLGRL6TADuPskUdE8bPj8SykM-PlbiVEaiQvuhl2s&s",
+      nomeVaga: "IT Analyst I",
+      empresalVaga: "Santander",
+      localVaga: "Qualquer lugar",
+      descricaoVaga:
+        "Fazemos parte do maior banco Internacional do Brasil, um dos maiores bancos do mundo...",
     },
   ];
 
@@ -41,11 +63,11 @@ export default function Vagas() {
             <span className="Explore">Explore</span> novas vagas
           </h1>
         </div>
-        <div className="Container">
+        <div className="vagas-container">
           <ul className="lista-vagas">
             {listaVagas.map((vaga, index) => (
               <li style={{ "--i": index + 1 }} key={index}>
-                <img src={vaga.imagemVaga} />
+                <img src={vaga.imagemVaga} alt="Imagem da empresa da Vaga" />
                 <div className="content">
                   <h4>{vaga.nomeVaga}</h4>
                   <p>
@@ -54,8 +76,17 @@ export default function Vagas() {
                   <p>{vaga.descricaoVaga}</p>
                 </div>
                 <div className="container-botao">
-                  <a className="button" href={vaga.linkVaga} target="_blank">
-                    LER MAIS
+                  <a
+                    className="button"
+                    href={vaga.linkVaga}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Sobre
                   </a>
                 </div>
               </li>
