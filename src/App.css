@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App-header {
@@ -42,40 +42,36 @@ body {
 
 .footerr {
   background-color: #08210c !important;
-
 }
 
-.botaoAddPergunta{
+.botaoAddPergunta {
   display: flex;
   justify-content: flex-end;
-
 }
 
 .botaoAddPergunta:hover i {
   text-shadow: #3498db;
 }
 
-.addPergunta{
+.addPergunta {
   border-radius: 100%;
   position: fixed;
-
 }
 .bold-icon {
   font-weight: bold;
 }
 
-
-.botaoExpandir{
+.botaoExpandir {
   border-radius: 100%;
 
   font-weight: bolder;
 }
 
-.botaoExpandirTop{
+.botaoExpandirTop {
   display: flex;
   justify-content: flex-end;
 }
-.botaoExpandir:hover{
+.botaoExpandir:hover {
   color: #49c8ee;
 }
 
@@ -119,7 +115,6 @@ body {
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
 
 .cardCurso img {
   width: 40px !important;
@@ -171,9 +166,9 @@ body {
 .botao {
   height: 52px;
   width: 124px;
-  background-color: #0F6CF7;
+  background-color: #0f6cf7;
   border-radius: 16px;
-  border-color: #0F6CF7;
+  border-color: #0f6cf7;
 }
 
 .botao:hover {
@@ -186,7 +181,6 @@ body {
   background-color: rgb(226, 46, 46);
   border-radius: 16px;
   border-color: rgb(226, 46, 46);
-  ;
 }
 
 .botaoCancelar:hover {
@@ -229,7 +223,6 @@ main {
   border: none;
   transition: background-color 0.3s, transform 0.3s;
   cursor: pointer;
-
 }
 
 .hover-effect:hover {
@@ -274,7 +267,7 @@ main {
   border-radius: 16px;
   text-align: center;
   font-size: 15px;
-  animation: blink 1.5s 2; 
+  animation: blink 1.5s 2;
   margin-left: 20px;
   font-size: 16px;
 }
@@ -303,5 +296,3 @@ main {
   margin-top: 10px;
   height: 70px;
 }
-
-
