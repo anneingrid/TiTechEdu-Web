@@ -301,3 +301,48 @@ main {
   margin-top: 10px;
   height: 70px;
 }
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 40px ;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.box img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+}
+
+.box label{
+  padding: 10px;
+  cursor: pointer;
+  background: #760a0a;
+  color: #fff;
+  font-weight: 600;
+  margin: 7px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  text-transform: unset;
+  transition: 5. ease;
+}
+
+.box label:hover{
+  background: #fff;
+  color: #dbebf5;
+
+}
+
+.box input{
+  display: block;
+}
+
+.perfil-container{
+  color: white;
+}
