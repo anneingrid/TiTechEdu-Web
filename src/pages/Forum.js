@@ -3,11 +3,13 @@ import NavBarr from "./NavBarr";
 import CardForum from "../components/CardForum";
 import ModalPergunta from "../components/ModalPergunta";
 import { useState, useEffect } from "react";
+import Footerr from "./Footerr";
 
 
 export default function Forum() {
     const [perguntas, setPerguntas] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    
 
     const abrirModal = () => {
         setShowModal(true);
@@ -42,7 +44,7 @@ export default function Forum() {
     }, []);
 
 
-    
+
 
 
 
@@ -70,10 +72,10 @@ export default function Forum() {
                     ))
                 ) : (
                     <p>Nenhuma pergunta encontrada.</p>
-                )};
+                )}
 
             </Container>
-
+            {/* <Footerr></Footerr> */}
 
         </>
     );

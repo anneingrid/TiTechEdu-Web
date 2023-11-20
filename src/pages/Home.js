@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import { useState, useEffect } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import animationData from './animacao2.json';
+import animationData from './animacaoLoginCadastro.json';
 import Lottie from "lottie-react";
 import CardCursoHome from "../components/CardCursoHome";
 

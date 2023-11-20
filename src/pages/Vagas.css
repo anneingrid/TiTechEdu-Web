@@ -214,7 +214,7 @@
 .vagas-imagem {
   width: 80px;
   display: block;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   align-self: start;
   margin-top: 20px;
   margin-left: 40px;

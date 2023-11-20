@@ -29,7 +29,7 @@ const roteador = createBrowserRouter([
   {path: '/cursos', element: <Cursos/>},
   {path: '/linkedin', element: <Vagas/>},
   {path: '/exercicios', element: <Tarefas/>},
-  { path: '/exercicios/:exercicioId', element: <Exercicio /> },
+  {path: '/exercicios/:exercicioId', element: <Exercicio /> },
   {path: '/cursos/:id', element:<CursoDetalhes/>},
   {path: '/forum/:id', element: <Pergunta />}
 ]);

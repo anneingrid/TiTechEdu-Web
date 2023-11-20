@@ -64,7 +64,6 @@ body {
 
 .botaoExpandir {
   border-radius: 100%;
-
   font-weight: bolder;
 }
 
@@ -73,9 +72,6 @@ body {
   justify-content: flex-end;
 }
 
-.botaoExpandir:hover {
-  color: #49c8ee;
-}
 
 .gradient-btn {
   padding: 10px 20px;

@@ -27,7 +27,7 @@ export default function Footerr() {
         <>
             <footer className="footer">
                 <div className="container p-4">
-                    Feito com ❤️ por TI Tech EDU
+                    Feito com ❤️ por TI Tech EDU, Henrique e Lacerdx
                 </div>
 
             </footer>

@@ -53,8 +53,9 @@ export default function NavBarr() {
                     <Nav className="me-auto">
                         <Nav.Link href="/home">Home</Nav.Link>
                         <Nav.Link href="/cursos">Cursos</Nav.Link>
-                        <Nav.Link href="/forum">Fórum</Nav.Link>
                         <Nav.Link href="/exercicios">Exercícios</Nav.Link>
+                        <Nav.Link href="/forum">Comunidade</Nav.Link>
+                        <Nav.Link href="/linkedin">Vagas</Nav.Link>
                     </Nav>
                     <Nav >
                         <Nav.Link href="/perfil">

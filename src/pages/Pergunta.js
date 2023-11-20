@@ -72,7 +72,6 @@ export default function Pergunta() {
 
             const novoComentario = await response.json();
 
-            // Atualize o estado local dos comentários para incluir o novo comentário
             setPergunta((prevPergunta) => ({
                 ...prevPergunta,
                 comentarios: [...prevPergunta.comentarios, novoComentario],
@@ -100,8 +99,7 @@ export default function Pergunta() {
                 <div >
                     <Row>
                         <Col >
-
-                            <Card className="mt-5 text-white" bg={"info"} >
+                            <Card className="mt-5 text-black"  style={{backgroundColor: "#e3e5e8"}} >
                                 <Card.Body>
                                     <div style={{ display: 'flex' }}>
                                         <Row className="me-auto align-items-center mb-1">
@@ -111,8 +109,8 @@ export default function Pergunta() {
                                         </Row>
                                     </div>
 
-                                    <Card.Text style={{ color: 'white', fontSize: 12 }} >Data:{formattedDate}</Card.Text>
-                                    <hr style={{ margin: 2, color: 'white' }}></hr>
+                                    <Card.Text style={{ color: 'black', fontSize: 12 }} >Data:{formattedDate}</Card.Text>
+                                    <hr style={{ margin: 2, color: '#49c8ee' }}></hr>
                                     <Card.Text>{pergunta.descricao}</Card.Text>
                                 </Card.Body>
 
@@ -135,9 +133,9 @@ export default function Pergunta() {
                                         style={{
                                             fontSize: 25,
                                             cursor: 'pointer',
-                                            borderRadius: '100%', // Ajuste conforme necessário
+                                            borderRadius: '100%', 
                                             width: 40,
-                                            height: 40, // Igual à largura para tornar o botão quadrado
+                                            height: 40, 
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -169,7 +167,7 @@ export default function Pergunta() {
 
                                 ))
                             ) : (
-                                'Nenhum comentário'
+                                'Não existem comentários para esse post!'
                             )}
 
 

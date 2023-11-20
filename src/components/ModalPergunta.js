@@ -12,6 +12,7 @@ export default function ModalPergunta() {
     const [showAlert, setShowAlert] = useState(false);
     const navigate = useNavigate();
     const [cursos, setCursos] = useState([]);
+    const usuario = localStorage.getItem("userId");
 
     const salvar = (event) => {
         event.preventDefault();
@@ -28,7 +29,8 @@ export default function ModalPergunta() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ titulo, descricao, cursoRelacionado }),
+            
+            body: JSON.stringify({ usuario, titulo, descricao, cursoRelacionado }),
         })
             .then(data => {
                 console.log('Success:', data);
