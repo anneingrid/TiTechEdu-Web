@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import animationData from './animacaoLoginCadastro.json';
 import Lottie from "lottie-react";
 import CardCursoHome from "../components/CardCursoHome";
+import { Link as ScrollLink } from "react-scroll";
 
 
 export default function Home() {
@@ -54,27 +55,27 @@ export default function Home() {
                         <h1 className="titleHome">
                             Desenvolva Seu
                             <span className="futuro"> Futuro</span>, <br></br>Codifique com Confiança!</h1>
-                        <Button
-                            className="hover-effect"
-                            style={{ minHeight: '10vh', minWidth: '10vh', fontSize: 20 }}
-                        >
-                            Let's get started!
-                        </Button>
 
+
+                        <ScrollLink to="cursosContainer" smooth={true} duration={50}>
+                            <Button
+                                className="hover-effect"
+                                style={{ minHeight: '10vh', minWidth: '10vh', fontSize: 20 }}
+                            >
+                                Quero começar!
+                            </Button>
+                        </ScrollLink>
                     </Col>
                 </Row>
             </Container>
-            <Container fluid className="p-5" style={{
-                backgroundColor: '#2e2f30',
-                backgroundImage: `url('https://img.freepik.com/fotos-gratis/fundo-gradiente-de-luxo-abstrato-azul-escuro-liso-com-banner-de-estudio-vinheta-preta_1258-108775.jpg?w=1380&t=st=1700245488~exp=1700246088~hmac=8c0f7358a5d724cf9d198d6d14d1ec92f87db2159d59cc7aa55121d22035d5ac')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+            <Container fluid className="p-5" id="cursosContainer" style={{
+                backgroundColor: '#041017',
                 height: '100%',
             }}>
                 <Row className="align-items-center" >
                     <Col className="align-items-center text-center">
-                        <h1 style={{ color: 'white', textTransform: 'uppercase' }}>
-                            <b>Cursos disponíveis</b></h1>
+                        <h1 className="titleForum">
+                            <b>confira esses cursos</b></h1>
 
                     </Col>
                 </Row>

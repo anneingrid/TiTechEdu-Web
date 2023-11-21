@@ -205,9 +205,7 @@ main {
   text-shadow: 2px 2px 10px #3498db;
   text-transform: uppercase;
   font-weight: bold;
-  /* Adiciona negrito */
   letter-spacing: -2px;
-  /* Diminui o espaçamento entre as letras */
 }
 
 .futuro {
@@ -216,18 +214,23 @@ main {
 }
 
 .hover-effect {
-  background-color: #3498db;
-  color: #fff;
+  background-color: #76d2f7;
+  color: #0a253f;
   padding: 10px 20px;
   border: none;
   transition: background-color 0.3s, transform 0.3s;
   cursor: pointer;
+  min-height: 10vh;
+  min-width: 10vh;
+  font-size: 20;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
+
 .hover-effect:hover {
-  background-color: rgb(14, 0, 77);
+  background-color: #0a253f;
   transform: scale(1.1);
-  /* Aumenta o tamanho em 10% */
 }
 
 .animacao {
@@ -342,3 +345,27 @@ main {
 .perfil-container{
   color: white;
 }
+
+.titleForum{
+  font-size: 35px;
+  text-transform:uppercase;
+  color: white;
+  text-shadow: 2px 2px 10px #dbf8fe;
+}
+
+.expand-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.expand-on-hover:hover {
+  transform: scale(1.05);
+}
+
+.hover-comment {
+  font-size: 15px; 
+  margin-right: 5px;
+  margin-left: 5px;
+  color: white;
+  cursor: pointer;
+}
+

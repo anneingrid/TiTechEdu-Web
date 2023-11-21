@@ -173,7 +173,7 @@ export default function ModalPergunta() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="info" onClick={salvar} className='text-white'>
+                    <Button style={{backgroundColor:'#0a253f'}} onClick={salvar} className='text-white'>
                         Enviar
                     </Button>
                 </Modal.Footer>

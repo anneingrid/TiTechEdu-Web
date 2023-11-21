@@ -1,15 +1,16 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import NavBarr from "./NavBarr";
 import CardForum from "../components/CardForum";
 import ModalPergunta from "../components/ModalPergunta";
 import { useState, useEffect } from "react";
 import Footerr from "./Footerr";
+import { Link } from "react-router-dom";
 
 
 export default function Forum() {
     const [perguntas, setPerguntas] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    
+
 
     const abrirModal = () => {
         setShowModal(true);
@@ -54,8 +55,9 @@ export default function Forum() {
 
             <Container style={{ marginTop: '2rem' }}>
                 <Row className="mt-5">
-                    <Col md={11}>
-                        <h1 className="text-white" style={{ fontSize: 30 }}>Comunidade </h1>
+                    <Col md={11} className="d-flex justify-content-left">
+                        
+                        <h1 className="titleForum">Comunidade </h1>
                     </Col>
                     <Col className="d-flex justify-content-end" md={1}>
                         <ModalPergunta />
@@ -68,6 +70,7 @@ export default function Forum() {
                         <CardForum
                             key={pergunta.id}
                             pergunta={pergunta}
+                            
                         />
                     ))
                 ) : (

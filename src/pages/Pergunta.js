@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import NavBarr from "./NavBarr";
 import { Button, Card, Col, Container, FloatingLabel, Form, InputGroup, Row } from "react-bootstrap";
 import { format } from "date-fns";
@@ -97,9 +97,28 @@ export default function Pergunta() {
             <NavBarr />
             <Container >
                 <div >
+
+                    <Button
+                        className="mt-3"
+                        variant="outline-light"
+                        href="/forum"
+                        style={{
+                            fontSize: 25,
+                            cursor: 'pointer',
+                            borderRadius: '100%',
+                            width: 40,
+                            height: 40,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <i className="bi bi-arrow-left"></i>
+                    </Button>
+
                     <Row>
                         <Col >
-                            <Card className="mt-5" style={{ backgroundColor: "#041017", border: '0.5px solid #0a253f', color: '#dbf8fe' }} >
+                            <Card className="mt-4" style={{ backgroundColor: "#041017", border: '0.5px solid #0a253f', color: '#dbf8fe' }} >
                                 <Card.Body>
                                     <div style={{ display: 'flex' }}>
                                         <Row className="me-auto align-items-center mb-1">
@@ -123,7 +142,7 @@ export default function Pergunta() {
 
                             <Row className="mt-5">
                                 <Col>
-                                    <h1 className="text-white" style={{ fontSize: 25 }}>Comentários </h1>
+                                    <h1 className="text-white" style={{ fontSize: 25, textTransform: 'uppercase' }}>Comentários </h1>
                                 </Col>
                                 <Col className="d-flex justify-content-end">
 
@@ -154,12 +173,12 @@ export default function Pergunta() {
                             {pergunta.comentarios && pergunta.comentarios.length > 0 ? (
                                 pergunta.comentarios.map((comentario) => (
                                     <div key={comentario.id}>
-                                        <Card className="mt-2">
+                                        <Card className="mt-2" style={{backgroundColor:'#0a253f', border: '0.5px solid #041017'}}>
                                             <Card.Body>
-                                                <Card.Text>
-                                                    <Card.Text style={{ color: '#49c8ee', fontSize: 12 }}>Data: {format(new Date(comentario.dataComentario), 'dd/MM/yyyy HH:mm')}</Card.Text>
+                                                <Card.Text style={{ color: '#dbf8fe' }}>
+                                                    <Card.Text style={{fontSize: 12 }}>Data: {format(new Date(comentario.dataComentario), 'dd/MM/yyyy HH:mm')}</Card.Text>
                                                     <hr ></hr>
-                                                    <p>{comentario.descricao}</p>
+                                                    <p >{comentario.descricao}</p>
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -188,7 +207,7 @@ export default function Pergunta() {
                                     <Form.Control
                                         type="text"
                                         placeholder="name@example.com"
-                                        style={{ height: '100px', backgroundColor: "#041017", border: '0.5px solid #0a253f', color: '#dbf8fe'}}
+                                        style={{ height: '100px', backgroundColor: "#041017", border: '0.5px solid #0a253f', color: '#dbf8fe' }}
                                         onChange={(e) => setDescricao(e.target.value)}
                                     />
                                 </FloatingLabel>
