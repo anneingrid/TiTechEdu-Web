@@ -7,52 +7,89 @@ import Footerr from './Footerr';
 
 export default function Perfil() {
   const navigate = useNavigate();
-  const [perfil, setPerfil] = useState({
-    id: '',
-    nome: '',
-    sobrenome: '',
-    idioma: 'portuguese',
-    email: '',
-  });
+  const [usuario, setUsuario] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [nome, setNome] = useState('');
+  const [imagem, setImagem] = useState('');
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const buscaUsuario = async () => {
+      try {
+        const usuarioId = localStorage.getItem("userId");
+        const id = parseInt(usuarioId);
+  
+        const response = await fetch('http://localhost:3001/usuario', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id }),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Erro na resposta do servidor');
+        }
+  
+        const data = await response.json();
+  
+        setUsuario(data.nomeUsuario);
+        setNome(data.nomeUsuario);
+        setEmail(data.emailUsuario);
+        setSenha(data.senhaUsuario);
+      } catch (error) {
+        console.error('Erro ao buscar usuário:', error);
+      }
+    };
+  
+    buscaUsuario();
+  }, []);
+  
+
+  const alteraUsuario = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/usuarioAltera`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id : usuario.id , nome: usuario.nome, email: usuario.email}),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar o usuário:', error);
+    }
+  };
+
+  const deletaUsuario = async () => {
+  try {
+    const response = await fetch(`http://localhost:3001/usuarioDeleta/${usuario.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro na requisição: ${response.status}`);
+    }
+  } catch (error) {
+    console.error('Erro ao deletar o usuário:', error);
+  }
+};
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const handleChange = (e) => {
-    setPerfil({ ...perfil, [e.target.name]: e.target.value });
-  };
 
   const sair = () => {
     localStorage.removeItem('userId');
     navigate('/');
   };
-
-  // ...
-
-const salvarAlteracoes = async () => {
-  try {
-    const idUsuario = localStorage.getItem('userId');
-
-    const response = await fetch(`http://localhost:3001/perfil`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: idUsuario, ...perfil }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    console.log('Perfil atualizado com sucesso:', data);
-  } catch (error) {
-    console.error('Erro ao atualizar o perfil:', error.message);
-  }
-};
-
 
   return (
     <>
@@ -81,26 +118,26 @@ const salvarAlteracoes = async () => {
               <Form.Group controlId="formNome">
                 <Form.Label className="form-label">Nome</Form.Label>
                 <Form.Control
+                  placeholder={`${nome}`}
                   type="text"
-                  placeholder="Digite seu nome"
                   className="form-input"
                   name="nome"
-                  value={perfil.nome}
-                  onChange={handleChange}
+                  value={nome}
+                  onChange={(event) => setNome(event.target.value)}
                 />
               </Form.Group>
             </Col>
 
             <Col xs={12} md={6}>
-              <Form.Group controlId="formSobrenome">
-                <Form.Label className="form-label">Sobrenome</Form.Label>
+              <Form.Group controlId="formSenha">
+                <Form.Label className="form-label">Senha</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Digite seu sobrenome"
+                  placeholder={`${senha}`}
                   className="form-input"
-                  name="sobrenome"
-                  value={perfil.sobrenome}
-                  onChange={handleChange}
+                  name="Senha"
+                  value={senha}
+                  onChange={(event) => setSenha(event.target.value)}
                 />
               </Form.Group>
             </Col>
@@ -113,12 +150,8 @@ const salvarAlteracoes = async () => {
                 <Form.Select
                   className="form-input"
                   name="idioma"
-                  value={perfil.idioma}
-                  onChange={handleChange}
                 >
                   <option value="portuguese">Português</option>
-                  <option value="english">English</option>
-                  <option value="spanish">Español</option>
                 </Form.Select>
               </Form.Group>
             </Col>
@@ -128,24 +161,21 @@ const salvarAlteracoes = async () => {
                 <Form.Label className="form-label">E-mail</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Digite seu E-mail"
-                  className="form-input"
+                  placeholder={`${email}`}
+                  className="ms-2"
                   name="email"
-                  value={perfil.email}
-                  onChange={handleChange}
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                 />
               </Form.Group>
             </Col>
           </Row>
         </Form>
+
         <Row className="mt-3">
           <Col xs={12} md={6}>
-            <Button variant="success" onClick={salvarAlteracoes}>
-              Salvar Alteração
-            </Button>
-            <Button variant="danger" onClick={handleShow}>
-              Encerrar conta
-            </Button>
+            <Button variant="success" onClick={alteraUsuario}> Salvar Alteração </Button>
+            <Button variant="danger" onClick={handleShow}> Encerrar conta </Button>
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
@@ -156,7 +186,7 @@ const salvarAlteracoes = async () => {
                 <Button variant="success" onClick={handleClose}>
                   Continuar com a conta
                 </Button>
-                <Button variant="danger" onClick={sair}>
+                <Button variant="danger" onClick={deletaUsuario}>
                   Encerrar com a Conta
                 </Button>
               </Modal.Footer>
