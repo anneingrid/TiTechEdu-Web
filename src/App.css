@@ -322,9 +322,8 @@ main {
 .box label{
   padding: 10px;
   cursor: pointer;
-  background: #760a0a;
+  background:#dc3545;
   color: #fff;
-  font-weight: 600;
   margin: 7px;
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);

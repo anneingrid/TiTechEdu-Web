@@ -1,51 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Form, Button, Modal } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import NavBarr from './NavBarr';
 import Footerr from './Footerr';
 
 export default function Perfil() {
   const navigate = useNavigate();
-  const [usuario, setUsuario] = useState('');
+  const [id, setUsuario] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [nome, setNome] = useState('');
-  const [imagem, setImagem] = useState('');
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const buscaUsuario = async () => {
-      try {
-        const usuarioId = localStorage.getItem("userId");
-        const id = parseInt(usuarioId);
-  
-        const response = await fetch('http://localhost:3001/usuario', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ id }),
+      const usuarioId = localStorage.getItem("userId");
+      const id = parseInt(usuarioId);
+
+      const response = await fetch('http://localhost:3001/usuarioPerfil', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id }),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro na resposta do servidor');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setUsuario(data.usuario.id);
+          setNome(data.usuario.nome);
+          setEmail(data.usuario.email);
+          setSenha(data.usuario.senha);
+          console.log(data.usuario.nome);
+        })
+        .catch((error) => {
+          alert(error.message);
         });
-  
-        if (!response.ok) {
-          throw new Error('Erro na resposta do servidor');
-        }
-  
-        const data = await response.json();
-  
-        setUsuario(data.nomeUsuario);
-        setNome(data.nomeUsuario);
-        setEmail(data.emailUsuario);
-        setSenha(data.senhaUsuario);
-      } catch (error) {
-        console.error('Erro ao buscar usuário:', error);
-      }
     };
-  
+
     buscaUsuario();
   }, []);
-  
+
 
   const alteraUsuario = async () => {
     try {
@@ -54,37 +53,19 @@ export default function Perfil() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id : usuario.id , nome: usuario.nome, email: usuario.email}),
+        body: JSON.stringify({ id: id, nome: nome, email: email, senha: senha }),
       });
 
       if (!response.ok) {
         throw new Error(`Erro na requisição: ${response.status}`);
       }
+      window.location.reload();
     } catch (error) {
       console.error('Erro ao atualizar o usuário:', error);
     }
   };
 
-  const deletaUsuario = async () => {
-  try {
-    const response = await fetch(`http://localhost:3001/usuarioDeleta/${usuario.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
 
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-  } catch (error) {
-    console.error('Erro ao deletar o usuário:', error);
-  }
-};
-
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const sair = () => {
     localStorage.removeItem('userId');
@@ -100,11 +81,11 @@ export default function Perfil() {
           <Col xs={6} md={4} className="text-center">
             <div className="box">
               <img
-                src="https://assets.propmark.com.br/uploads/2023/02/13DanielOliveira-1.png"
+                src="https://www.palmeiras87fm.com.br/wp-content/uploads/2022/11/ana-castela-celso-tavares-g1-4-de-18-b-scaled.jpg"
                 alt="foto de perfil"
                 style={{ width: '300px', height: '300px' }}
               />
-              <label htmlFor="upload">Upload foto</label>
+              <label htmlFor="upload" >Upload foto</label>
               <input type="file" id="upload" className="input-upload" />
             </div>
           </Col>
@@ -133,7 +114,7 @@ export default function Perfil() {
                 <Form.Label className="form-label">Senha</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder={`${senha}`}
+                  placeholder='*****'
                   className="form-input"
                   name="Senha"
                   value={senha}
@@ -174,29 +155,11 @@ export default function Perfil() {
 
         <Row className="mt-3">
           <Col xs={12} md={6}>
-            <Button variant="success" onClick={alteraUsuario}> Salvar Alteração </Button>
-            <Button variant="danger" onClick={handleShow}> Encerrar conta </Button>
-
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Encerrar conta</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>Acabou, não tem mais jeito!</Modal.Body>
-              <Modal.Footer>
-                <Button variant="success" onClick={handleClose}>
-                  Continuar com a conta
-                </Button>
-                <Button variant="danger" onClick={deletaUsuario}>
-                  Encerrar com a Conta
-                </Button>
-              </Modal.Footer>
-            </Modal>
+            <Button  style={{backgroundColor:'#0a253f'}} className='text-white'onClick={alteraUsuario}> Salvar Alteração </Button>
           </Col>
 
           <Col xs={12} md={6}>
-            <Button variant="danger" onClick={sair}>
-              Sair da Conta
-            </Button>
+            <Button variant="danger" onClick={sair}> Sair da Conta </Button>
           </Col>
         </Row>
       </Container>
