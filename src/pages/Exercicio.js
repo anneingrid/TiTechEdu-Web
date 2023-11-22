@@ -44,7 +44,7 @@ export default function Exercicio() {
   return (
     <div style={divStyle}>
       <Link to="/exercicios">
-        <Button id="btn-arrow-left" variant="primary" className="btn-arrow-left" style={arrowButtonStyle}>
+        <Button id="btn-arrow-left" variant="outline-light" className="btn-arrow-left" style={arrowButtonStyle}>
           <i className="bi bi-arrow-left"></i>
         </Button>
       </Link>

@@ -68,14 +68,83 @@ export default function Home() {
                     </Col>
                 </Row>
             </Container>
-            <Container fluid className="p-5" id="cursosContainer" style={{
+            <Container fluid className="p-5" style={{
                 backgroundColor: '#041017',
+                height: '100%',
+            }}>
+                <Row className="d-flex justify-content-center align-items-center text-center">
+                    <Col className="d-flex justify-content-center align-items-center text-center">
+                        <h1 className="titleOqueE"><b>Explore Nossos Diferenciais</b></h1>
+                    </Col>
+
+
+                </Row>
+                <Row className="mt-2 d-flex justify-content-center align-items-center text-center">
+                    <Col md={4} className="d-flex justify-content-center align-items-center text-center">
+                        <i className="iconHome bi bi-lightbulb-fill"></i>
+                    </Col>
+                    <Col md={4} className="d-flex justify-content-center align-items-center text-center">
+                        <i className="iconHome bi bi-people-fill"></i>
+                    </Col>
+                    <Col md={4} className="d-flex justify-content-center align-items-center text-center">
+                        <i className="iconHome bi bi-graph-up"></i>
+                    </Col>
+
+                </Row>
+                <Row className="mt-2 d-flex justify-content-center align-items-center text-center">
+                    <Col md={4} className="d-flex justify-content-center align-items-center text-center">
+                        <span className="titleBolaHome"><b>Aprendizado Inspirador</b></span>
+                    </Col>
+                    <Col md={4} className="d-flex justify-content-center align-items-center text-center">
+                        <span className="titleBolaHome"><b>Comunidade Vibrante</b></span>
+                    </Col>
+                    <Col md={4} className="d-flex justify-content-center align-items-center text-center">
+                        <span className="titleBolaHome"><b>Preparação Profissional</b></span>
+                    </Col>
+                </Row>
+                <Row className="mt-2 d-flex justify-content-center align-items-top text-center">
+                    <Col md={4} className="d-flex justify-content-center align-items-top text-center">
+                        <span className="textoBolaHome">Transformamos curiosidade em conhecimento com vídeos e cursos envolventes.</span>
+                    </Col>
+                    <Col md={4} className="d-flex justify-content-center align-items-top text-center">
+                        <span className="textoBolaHome">Junte-se a uma comunidade cheia de energia para trocar ideias e solucionar dúvidas.</span>
+                    </Col>
+                    <Col md={4} className="d-flex justify-content-center align-items-top text-center">
+                        <span className="textoBolaHome"> Desperte seu potencial com exercícios práticos e esteja à frente das oportunidades do mercado de tecnologia.</span>
+                    </Col>
+                </Row>
+            </Container>
+
+            <Container fluid className="px-5 " style={{
+                backgroundColor: '#0a253f',
+                height: '100%',
+            }}>
+                <Row >
+                    <Col md={4} className="d-flex align-items-center text-center">
+                        <img src='logo.svg' style={{ width: 400, height: 400 }} alt="Logo" ></img>
+
+                    </Col>
+                    <Col md={8} className="d-flex align-items-center text-center text-center">
+                        {/* <h1 className="titleOqueE">
+                            <b>o que somos?</b></h1> */}
+                        <span className="textoOqueSomos">
+                            Embarque na jornada emocionante da aprendizagem tecnológica! Aqui, transformamos <b>curiosidade</b> em <b>conhecimento</b>, oferecendo vídeos incríveis, cursos que desafiam limites e uma comunidade cheia de energia pronta para trocar ideias e solucionar dúvidas.
+                            <br />
+                            O <b>TI TECH EDU</b>, não é apenas sobre aprender. É sobre se <b>conectar, inspirar e trilhar juntos</b> o caminho do sucesso tecnológico. Vamos construir algo incrível!</span>
+
+                    </Col>
+
+                </Row>
+
+            </Container>
+            <Container fluid className="p-5" id="cursosContainer" style={{
+                backgroundColor: '#134b6c',
                 height: '100%',
             }}>
                 <Row className="align-items-center" >
                     <Col className="align-items-center text-center">
                         <h1 className="titleForum">
-                            <b>confira esses cursos</b></h1>
+                            <b>Descubra Cursos Personalizados para Você</b></h1>
 
                     </Col>
                 </Row>
@@ -86,28 +155,6 @@ export default function Home() {
                         </Col>
                     ))}
                 </Row>
-            </Container>
-            <Container fluid className="p-5" style={{
-                backgroundColor: '#0a253f',
-                height: '100%',
-            }}>
-                <Row >
-                <Col md={4} className="d-flex align-items-center text-center">
-                        <img src='logo.svg' style={{ width: 400, height: 400 }} alt="Logo" ></img>
-
-                    </Col>
-                    <Col md={8} className="d-flex align-items-center text-center text-center">
-                        {/* <h1 className="titleOqueE">
-                            <b>o que somos?</b></h1> */}
-                        <span className="textoOqueSomos">
-                        Embarque na jornada emocionante da aprendizagem tecnológica! Aqui, transformamos <b>curiosidade</b> em <b>conhecimento</b>, oferecendo vídeos incríveis, cursos que desafiam limites e uma comunidade cheia de energia pronta para trocar ideias e solucionar dúvidas.
-                            <br />
-                            No <b>TI TECH EDU</b>, não é apenas sobre aprender. É sobre se <b>conectar, inspirar e trilhar juntos</b> o caminho do sucesso tecnológico. Vamos construir algo incrível!</span>
-
-                    </Col>
-                    
-                </Row>
-
             </Container>
             <Footerr />
         </>

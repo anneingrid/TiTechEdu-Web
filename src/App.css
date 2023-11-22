@@ -72,7 +72,6 @@ body {
   justify-content: flex-end;
 }
 
-
 .gradient-btn {
   padding: 10px 20px;
   cursor: pointer;
@@ -80,36 +79,58 @@ body {
   outline: none;
   color: white;
   background: #0034a3;
-  /* fallback for browsers that don't support gradients */
   transition: all 0.3s ease;
   transform: scale(1);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   border-radius: 25px;
   display: inline-block;
-  /* This is needed for the transform to work correctly */
 }
 
 .gradient-btn:hover {
   background: #021166;
-  /* color when the cursor is at the end of the button */
   transform: scale(1.05);
-  /* slightly increase size */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  /* add shadow */
 }
 
 .cardCurso {
   text-align: center;
   align-items: center;
-  padding: 3%;
-  height: 110px;
-  background-color: #ffffff;
-  transition: background-color 0.3s;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  background-color: #041017;
+  height: 100px;
+  width: 240px;
+  color: #dbf8fe !important;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 2px 4px #1c1e1f;
+  margin-bottom: 15px;
+  text-decoration: none;
+  border: 0.5px solid #0a253f;
+  font-size: 14px;
+  font-weight: bold;
+}
+.cardCursoTarefa {
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  background-color: #041017;
+  height: 100px;
+  width: 240px;
+  color: #dbf8fe !important;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 2px 4px #1c1e1f;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 0.5px solid #0a253f;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px;
 }
 
 .cardCurso:hover {
-  background-color: #dbebf5;
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -119,30 +140,37 @@ body {
   padding-top: 7%;
 }
 
-.cardCurso-text {
+.cardCursoTarefa img {
+  width: 40px !important;
+  padding-top: 7%;
+}
+.cardCursoTarefa:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.caixa-selecao {
+  height: 35px;
   font-size: 16px;
   color: #566265;
 }
 
-.caixa-selecao {
-  height: 50px;
-  font-style: italic;
-  font-size: 20px;
-  color: #566265;
-}
-
 .caixa-busca {
-  height: 50px;
-  text-align: center;
-  font-style: italic;
-  font-size: 20px;
+  height: 35px;
+  font-size: 16px;
+  color: #566265;
   color: #566265;
 }
 
 .botao-buscar {
-  height: 50px;
-  width: 120px;
-  background-color: #002967;
+  height: 35px;
+  width: 60px;
+  background-color: #0a253f;
+}
+.botao-buscar:hover{
+  background-color: #1a4b78;
+  transform: scale(1.05);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .carousel-control-prev,
@@ -187,11 +215,15 @@ body {
 }
 
 .footer {
-  bottom: 0;
   width: 100%;
   background-color: #212429;
   text-align: center;
   color: rgb(255, 255, 255);
+  min-height: 20px;
+  /* position: sticky; ou "sticky" para um comportamento pegajoso */
+  bottom: 0;
+  margin: 0;
+  padding: 0px;
 }
 
 main {
@@ -267,13 +299,15 @@ main {
 .botaoDoc {
   width: auto;
   height: auto;
-  background-color: #0f9af7;
+text-decoration: none;
+color: white;
   border-radius: 16px;
   text-align: center;
   font-size: 15px;
   animation: blink 1.5s 2;
   margin-left: 20px;
   font-size: 16px;
+  margin-top: 10px;
 }
 
 .detalhesCurso {
@@ -348,24 +382,25 @@ main {
 .titleForum {
   font-size: 35px;
   text-transform: uppercase;
-  color: white;
-  text-shadow: 2px 2px 10px #dbf8fe;
+  color: #dbf8fe;
+  text-shadow: 0px 2px 4px #1c1e1f;
 }
 
 .expand-on-hover {
   transition: transform 0.3s ease-in-out;
-  background-color: #02080e;
+  background-color: #dbf8fe;
   height: 100px;
-  color: white;
+  color: #041017;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px solid #0a253f;
+  border: 1px solid #76d2f7;
+  box-shadow: 0px 2px 4px #1c1e1f;
 }
 
 .expand-on-hover:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .hover-comment {
@@ -379,12 +414,81 @@ main {
 .titleOqueE {
   font-size: 35px;
   text-transform: uppercase;
-  color: #041017;
-  text-shadow: 2px 2px 10px #76d2f7;
+  color: #dbf8fe;
+  text-shadow: 0 2px 4px rgb(211, 211, 211)171;
+  letter-spacing: -1px;
 }
 
 .textoOqueSomos {
   font-size: 25px;
   color: #dbf8fe;
 
+}
+
+.iconHome{
+  font-size: 25px;
+  background-color: #76d2f7;
+  padding: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 200%;
+  color: #0a253f;
+  box-shadow: 3px 3px 1px #dbf8fe;
+  transition: transform 0.3s ease-in-out;
+}
+
+.iconHome:hover {
+  transform: scale(1.1);
+}
+.titleBolaHome{
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 4px rgb(0, 0, 0);
+  color: #dbf8fe;
+}
+
+.textoBolaHome{
+  color:#dbf8fe;
+}
+
+.textoCardHome{
+  text-decoration: none;
+  color:#134b6c;
+  font-weight: bold;
+  font-size: 16px;
+}
+.active-page {
+  font-weight: bold; 
+  text-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+
+.active-page-offcanvas{
+  font-weight: bold;
+  color: #dbf8fe;
+}
+
+.colunas{
+  justify-self: start;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content:flex-start;
+    color: #dbf8fe;
+}
+
+.campos{
+  font-size: 20px;
+  color: #dbf8fe;
+}
+
+.botoesPefil {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  background-color: #041017;
+  padding: 5px;
+  border-radius: 8px;
 }

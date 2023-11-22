@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import NavBarr from "./NavBarr";
 import { Button, Card, Col, Container, FloatingLabel, Form, InputGroup, Row } from "react-bootstrap";
 import { format } from "date-fns";
+import Footerr from "./Footerr";
 
 export default function Pergunta() {
     const { id } = useParams();
@@ -93,7 +94,8 @@ export default function Pergunta() {
 
 
     return (
-        <div className="pergunta h-100">
+        
+            <>
             <NavBarr />
             <Container >
                 <div >
@@ -228,7 +230,9 @@ export default function Pergunta() {
                 </div>
 
             </Container>
-        </div>
+            <Footerr></Footerr>
+            </>
+       
 
 
 

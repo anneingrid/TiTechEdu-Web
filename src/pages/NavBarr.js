@@ -38,9 +38,14 @@ export default function NavBarr() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [currentPage, setCurrentPage] = useState('');
+    useEffect(() => {
+        const currentPath = window.location.pathname;
+        setCurrentPage(currentPath);
+    }, []);
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar bg="dark" data-bs-theme="dark" >
                 <Container>
                     <i id='menu' className="bi bi-list text-white me-2" onClick={handleShow} style={{ fontSize: 25 }}></i>
                     <Link to="/home">
@@ -50,20 +55,28 @@ export default function NavBarr() {
                             height="27"
                             className="d-inline-block align-top"
                             alt="Ti Tech Edu logo"
+                            style={{ marginRight: 5 }}
                         />
                     </Link>
                     {/* <Navbar.Brand href="/">Ti Tech Edu</Navbar.Brand> */}
                     <Nav className="me-auto">
-                        <Nav.Link href="/home">Home</Nav.Link>
-                        <Nav.Link href="/cursos">Cursos</Nav.Link>
-                        <Nav.Link href="/exercicios">Exercícios</Nav.Link>
-                        <Nav.Link href="/forum">Comunidade</Nav.Link>
-                        <Nav.Link href="/linkedin">Vagas</Nav.Link>
+                        <Nav.Link href="/cursos" className={`text-white ${currentPage === '/cursos' ? 'active-page' : ''}`}>
+                            Cursos
+                        </Nav.Link>
+                        <Nav.Link href="/exercicios" className={`text-white ${currentPage === '/exercicios' ? 'active-page' : ''}`}>
+                            Exercícios
+                        </Nav.Link>
+                        <Nav.Link href="/forum" className={`text-white ${currentPage === '/forum' ? 'active-page' : ''}`}>
+                            Comunidade
+                        </Nav.Link>
+                        <Nav.Link href="/linkedin" className={`text-white ${currentPage === '/linkedin' ? 'active-page' : ''}`}>
+                            Vagas
+                        </Nav.Link>
                     </Nav>
                     <Nav >
                         <Nav.Link href="/perfil">
                             <i className="bi bi-person-circle text-white" style={{ fontSize: 25 }}></i>
-                            <span className='ms-2'>Olá, {usuario} </span>
+                            <span className='ms-2 text-white'>Olá, <b>{usuario}</b></span>
                         </Nav.Link>
                     </Nav>
                 </Container>
@@ -79,43 +92,42 @@ export default function NavBarr() {
                             Mantenha-se atualizado com nossa newsletter e conecte-se com nossa comunidade vibrante.
                         </p>
                         <div>
-                            <Link to="/perfil" className='linkOffCanvas'>
+                            <Link to="/perfil" className={`linkOffCanvas ${currentPage === '/perfil' ? 'active-page' : ''}`}>
                                 <i className="bi bi-person-circle p-2" style={{ fontSize: 25 }}></i>
-                                <span className=" p-2">Perfil</span></Link>
-
+                                <span className=" p-2">Perfil</span>
+                            </Link>
                             <hr></hr>
                         </div>
                         <div>
-                            <Link to="/cursos" className='linkOffCanvas'>
+                            <Link to="/cursos" className={`linkOffCanvas ${currentPage === '/cursos' ? 'active-page-offcanvas' : ''}`}>
                                 <i className="bi bi-mortarboard p-2" style={{ fontSize: 25 }}></i>
                                 <span className=" p-2">Cursos</span>
                             </Link>
+                            <hr></hr>
+                            <div>
+                                <Link to="/exercicios" className={`linkOffCanvas ${currentPage === '/exercicios' ? 'active-page-offcanvas' : ''}`}>
+                                    <i className="bi bi-book p-2" style={{ fontSize: 25 }}></i>
+                                    <span className=" p-2">Exercícios</span>
+                                    <hr></hr>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/forum" className={`linkOffCanvas ${currentPage === '/forum' ? 'active-page-offcanvas' : ''}`}>
+                                    <i className="bi bi-chat p-2" style={{ fontSize: 25 }}></i>
+                                    <span className=" p-2">Comunidade</span>
+                                </Link>
+                                <hr></hr>
+                            </div>
 
-                            <hr></hr>
-                        </div>
-                        <div>
-                            <Link to="/forum" className='linkOffCanvas'>
-                                <i className="bi bi-chat p-2" style={{ fontSize: 25 }}></i>
-                                <span className=" p-2">Comunidade</span>
-                            </Link>
-                            <hr></hr>
-                        </div>
-                        <div>
-                            <Link to="/linkedin" className='linkOffCanvas'>
-                                <i className="bi bi-rocket-takeoff p-2" style={{ fontSize: 25 }}></i>
-                                <span className=" p-2">Vagas disponíveis</span>
-                                <hr></hr>
-                            </Link>
-                        </div>
-                        <div>
-                            <Link to="/exercicios" className='linkOffCanvas'>
-                                <i className="bi bi-book p-2" style={{ fontSize: 25 }}></i>
-                                <span className=" p-2">Exercícios</span>
-                                <hr></hr>
-                            </Link>
+                            <div>
+                                <Link to="/linkedin" className={`linkOffCanvas ${currentPage === '/linkedin' ? 'active-page-offcanvas' : ''}`}>
+                                    <i className="bi bi-rocket-takeoff p-2" style={{ fontSize: 25 }}></i>
+                                    <span className=" p-2">Vagas disponíveis</span>
+                                    <hr></hr>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-
                 </Offcanvas.Body>
             </Offcanvas>
         </>

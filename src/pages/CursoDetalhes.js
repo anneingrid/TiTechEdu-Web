@@ -3,7 +3,7 @@ import NavBarr from './NavBarr';
 import Footerr from './Footerr';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import ReactPlayer from 'react-player';
 
 export default function CursoDetalhes() {
@@ -11,44 +11,58 @@ export default function CursoDetalhes() {
   const [curso, setCurso] = useState([]);
 
   useEffect(() => {
-      const buscaCurso = async () => {
-          try {
-              const response = await fetch('http://localhost:3001/curso', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({ id }),
-              });
+    const buscaCurso = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/curso', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id }),
+        });
 
-              if (!response.ok) {
-                  const errorData = await response.json();
-                  throw new Error(errorData.message || 'Erro na requisição');
-              }
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Erro na requisição');
+        }
 
-              const data = await response.json();
-              setCurso(data);
+        const data = await response.json();
+        setCurso(data);
 
-          } catch (error) {
-              alert(error.message);
-          }
-      };
+      } catch (error) {
+        alert(error.message);
+      }
+    };
 
-      buscaCurso();
+    buscaCurso();
   }, [id]);
 
   return (
     <>
       <NavBarr />
-      <h1 className='detalhesCurso'>Curso de {curso.titulo}
-        <Button className='botaoDoc' as={Link} to={curso.doc} target="_blank" rel="noopener noreferrer">
-          📄Documentação {curso.categoria}
-        </Button></h1>
       <Container>
-        <div className='iframe'>
-        <ReactPlayer url={curso.video} />
-        </div>
-          <h3 className='transcricaoCurso'>Transcrição</h3>
+        <Row className='my-3 d-flex justify-content-center align-items-center'>
+          <Col md={8}>
+            <h1 className='titleForum'>{curso.titulo}</h1>
+          </Col>
+          <Col md={2}>
+            <Link className='botaoDoc align-items-center' to='/exercicios' rel="noopener noreferrer">
+              <i className="bi bi-clipboard-check"></i>Exercícios
+            </Link>
+          </Col><Col md={2}>
+            <Link className='botaoDoc align-items-center' as={Link} to={curso.doc} target="_blank" rel="noopener noreferrer">
+              <i className="bi bi-file-earmark-text"></i>Docs <b>{curso.categoria}</b>
+            </Link>
+          </Col>
+
+        </Row>
+
+        
+       
+
+      </Container>
+      <Container className='iframe py-2' fluid style={{backgroundColor:'#041017'}}>
+          <ReactPlayer url={curso.video} />
         </Container>
       <Footerr />
     </>

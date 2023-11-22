@@ -18,6 +18,7 @@ import Exercicio from './pages/Exercicio';
 import Escolhas from './pages/Escolhas';
 import CursoDetalhes from './pages/CursoDetalhes';
 import Pergunta from './pages/Pergunta';
+import PerfilEditar from './pages/PerfilEditar';
 
 const roteador = createBrowserRouter([
   {path: '/', element: <Login/>},
@@ -25,6 +26,7 @@ const roteador = createBrowserRouter([
   {path: '/escolhas', element: <Escolhas/>},
   {path: '/home', element: <Home/>},
   {path: '/perfil', element: <Perfil/>},
+  {path: '/perfilEditar', element: <PerfilEditar/>},
   {path: '/forum', element: <Forum/>},
   {path: '/cursos', element: <Cursos/>},
   {path: '/linkedin', element: <Vagas/>},

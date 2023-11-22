@@ -96,9 +96,10 @@ export default function Cursos() {
     return (
         <>
             <NavBarr />
-            <h1 className="detalhesCurso">Cursos</h1>
+            
             <Container>
                 <div className="row py-4">
+                <h1 className="titleForum">Cursos</h1>
                     <Col md={4}>
                         <Form.Select
                             className="caixa-selecao"
@@ -118,12 +119,12 @@ export default function Cursos() {
                         <div className="d-flex">
                             <Form.Control
                                 className="me-2 mb-3 caixa-busca"
-                                placeholder="Busque por cursos aqui"
+                                placeholder="Pesquisar..."
                                 value={termoBusca}
                                 onChange={(e) => setTermoBusca(e.target.value)}
                             />
                             <Button className="botao-buscar" variant="secondary" onClick={handleBusca}>
-                                Buscar
+                            <i class="bi bi-search"></i>
                             </Button>
                         </div>
                     </Col>
@@ -134,12 +135,13 @@ export default function Cursos() {
                             <Row className="py-2">
                                 {grupo.map((curso) => (
                                     <Col key={curso.id} md={3}>
-                                        <Link to={`/cursos/${curso.id}`}>
+                                        <Link to={`/cursos/${curso.id}`}  style={{textDecoration:'none'}}>
                                             <CursoCard
                                                 id={curso.id}
                                                 imgSrc={curso.imgSrc}
                                                 alt={curso.alt}
                                                 title={curso.titulo}
+                                                
                                             />
                                         </Link>
                                     </Col>

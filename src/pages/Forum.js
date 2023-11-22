@@ -52,7 +52,6 @@ export default function Forum() {
     return (
         <>
             <NavBarr />
-
             <Container style={{ marginTop: '2rem' }}>
                 <Row className="mt-5">
                     <Col md={11} className="d-flex justify-content-left">
@@ -78,7 +77,7 @@ export default function Forum() {
                 )}
 
             </Container>
-            {/* <Footerr></Footerr> */}
+            <Footerr></Footerr>
 
         </>
     );

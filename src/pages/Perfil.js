@@ -1,170 +1,95 @@
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import NavBarr from './NavBarr';
-import Footerr from './Footerr';
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import NavBarr from "./NavBarr";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import Footerr from "./Footerr";
 
 export default function Perfil() {
-  const navigate = useNavigate();
-  const [id, setUsuario] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [nome, setNome] = useState('');
+    const navigate = useNavigate();
+    const [id, setUsuario] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [nome, setNome] = useState('');
 
-  useEffect(() => {
-    const buscaUsuario = async () => {
-      const usuarioId = localStorage.getItem("userId");
-      const id = parseInt(usuarioId);
+    useEffect(() => {
+        const buscaUsuario = async () => {
+            const usuarioId = localStorage.getItem("userId");
+            const id = parseInt(usuarioId);
 
-      const response = await fetch('http://localhost:3001/usuarioPerfil', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id }),
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Erro na resposta do servidor');
-          }
-          return response.json();
-        })
-        .then(data => {
-          setUsuario(data.usuario.id);
-          setNome(data.usuario.nome);
-          setEmail(data.usuario.email);
-          setSenha(data.usuario.senha);
-          console.log(data.usuario.nome);
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
+            const response = await fetch('http://localhost:3001/usuarioPerfil', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na resposta do servidor');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    setUsuario(data.usuario.id);
+                    setNome(data.usuario.nome);
+                    setEmail(data.usuario.email);
+                    setSenha(data.usuario.senha);
+                    console.log(data.usuario.nome);
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        };
+
+        buscaUsuario();
+    }, []);
+    const sair = () => {
+        localStorage.removeItem('userId');
+        navigate('/');
     };
 
-    buscaUsuario();
-  }, []);
+    return (
+        <>
+            <NavBarr></NavBarr>
+            <Container fluid
+                className='pt-3'
+                style={{
+                    height: '70vh',
+                }}>
+                <Row className="d-flex align-items-center">
+                    <Col md={4}>
+                        <div className='d-flex align-items-center justify-content-start ms-5'>
+                            <h3 style={{ fontSize: '30px', color: '#dbf8fe' }}>Olá, <b>{nome}</b>! </h3>
+
+                        </div>
+                        <div className=' d-flex align-items-center justify-content-start ms-5'>
+                            <i class="bi bi-person-circle" style={{ fontSize: '200px', color: '#dbf8fe' }}></i>
+
+                        </div>
+                    </Col>
+                    <Col md={7} className='align-items-center me-2'>
+                        <div>
+                            <span className="campos">Nome: <b>{nome}</b> </span><br></br>
+                            <hr style={{color: '#dbf8fe' }}></hr>
+                        </div>
+                        <div ><span className="campos">Email: <b>{email}</b></span><br></br></div>
+                        <hr style={{color: '#dbf8fe' }}></hr>
+                        <div ><span className="campos">Cursos Inscritos: <b>...</b></span><br></br></div>
+                        <hr style={{color: '#dbf8fe' }}></hr>
+                        <div className="d-flex justify-content-end">
+                            <Link to='/perfilEditar' className="botoesPefil me-2" style={{backgroundColor:'#134b6c'}}><i class="bi bi-pencil-square"></i> Editar</Link>
+                            <Link className="botoesPefil me-2" onClick={sair} style={{backgroundColor:'#8a120a'}}> <i class="bi bi-box-arrow-left"></i> Sair</Link>
+                        </div>
 
 
-  const alteraUsuario = async () => {
-    try {
-      const response = await fetch(`http://localhost:3001/usuarioAltera`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id: id, nome: nome, email: email, senha: senha }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`);
-      }
-      window.location.reload();
-    } catch (error) {
-      console.error('Erro ao atualizar o usuário:', error);
-    }
-  };
+                    </Col>
+                </Row>
 
 
 
-  const sair = () => {
-    localStorage.removeItem('userId');
-    navigate('/');
-  };
-
-  return (
-    <>
-      <NavBarr />
-      <h3>Home/Perfil</h3>
-      <Container className="perfil-container">
-        <Row className="justify-content-center align-items-center">
-          <Col xs={6} md={4} className="text-center">
-            <div className="box">
-              <img
-                src="https://www.palmeiras87fm.com.br/wp-content/uploads/2022/11/ana-castela-celso-tavares-g1-4-de-18-b-scaled.jpg"
-                alt="foto de perfil"
-                style={{ width: '300px', height: '300px' }}
-              />
-              <label htmlFor="upload" >Upload foto</label>
-              <input type="file" id="upload" className="input-upload" />
-            </div>
-          </Col>
-        </Row>
-      </Container>
-
-      <Container className="perfil-container">
-        <Form>
-          <Row className="mb-3">
-            <Col xs={12} md={6}>
-              <Form.Group controlId="formNome">
-                <Form.Label className="form-label">Nome</Form.Label>
-                <Form.Control
-                  placeholder={`${nome}`}
-                  type="text"
-                  className="form-input"
-                  name="nome"
-                  value={nome}
-                  onChange={(event) => setNome(event.target.value)}
-                />
-              </Form.Group>
-            </Col>
-
-            <Col xs={12} md={6}>
-              <Form.Group controlId="formSenha">
-                <Form.Label className="form-label">Senha</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder='*****'
-                  className="form-input"
-                  name="Senha"
-                  value={senha}
-                  onChange={(event) => setSenha(event.target.value)}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-
-          <Row className="mb-3">
-            <Col xs={12} md={6}>
-              <Form.Group controlId="formIdioma">
-                <Form.Label className="form-label">Idioma</Form.Label>
-                <Form.Select
-                  className="form-input"
-                  name="idioma"
-                >
-                  <option value="portuguese">Português</option>
-                </Form.Select>
-              </Form.Group>
-            </Col>
-
-            <Col xs={12} md={6}>
-              <Form.Group controlId="formGridCity">
-                <Form.Label className="form-label">E-mail</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder={`${email}`}
-                  className="ms-2"
-                  name="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-        </Form>
-
-        <Row className="mt-3">
-          <Col xs={12} md={6}>
-            <Button  style={{backgroundColor:'#0a253f'}} className='text-white'onClick={alteraUsuario}> Salvar Alteração </Button>
-          </Col>
-
-          <Col xs={12} md={6}>
-            <Button variant="danger" onClick={sair}> Sair da Conta </Button>
-          </Col>
-        </Row>
-      </Container>
-
-      <Footerr />
-    </>
-  );
+            </Container>
+            
+<Footerr></Footerr>
+        </>
+    );
 }
