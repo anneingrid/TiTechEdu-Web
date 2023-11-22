@@ -301,17 +301,17 @@ main {
   height: 70px;
 }
 
-.box{
+.box {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 20px 40px ;
+  padding: 20px 40px;
   border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.box img{
+.box img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -319,7 +319,7 @@ main {
   border: 5px solid #fff;
 }
 
-.box label{
+.box label {
   padding: 10px;
   cursor: pointer;
   background:#dc3545;
@@ -331,29 +331,37 @@ main {
   transition: 5. ease;
 }
 
-.box label:hover{
+.box label:hover {
   background: #fff;
   color: #dbebf5;
 
 }
 
-.box input{
+.box input {
   display: block;
 }
 
-.perfil-container{
+.perfil-container {
   color: white;
 }
 
-.titleForum{
+.titleForum {
   font-size: 35px;
-  text-transform:uppercase;
+  text-transform: uppercase;
   color: white;
   text-shadow: 2px 2px 10px #dbf8fe;
 }
 
 .expand-on-hover {
   transition: transform 0.3s ease-in-out;
+  background-color: #02080e;
+  height: 100px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #0a253f;
 }
 
 .expand-on-hover:hover {
@@ -361,10 +369,22 @@ main {
 }
 
 .hover-comment {
-  font-size: 15px; 
+  font-size: 15px;
   margin-right: 5px;
   margin-left: 5px;
   color: white;
   cursor: pointer;
 }
 
+.titleOqueE {
+  font-size: 35px;
+  text-transform: uppercase;
+  color: #041017;
+  text-shadow: 2px 2px 10px #76d2f7;
+}
+
+.textoOqueSomos {
+  font-size: 25px;
+  color: #dbf8fe;
+
+}

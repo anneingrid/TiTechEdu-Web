@@ -87,6 +87,28 @@ export default function Home() {
                     ))}
                 </Row>
             </Container>
+            <Container fluid className="p-5" style={{
+                backgroundColor: '#0a253f',
+                height: '100%',
+            }}>
+                <Row >
+                <Col md={4} className="d-flex align-items-center text-center">
+                        <img src='logo.svg' style={{ width: 400, height: 400 }} alt="Logo" ></img>
+
+                    </Col>
+                    <Col md={8} className="d-flex align-items-center text-center text-center">
+                        {/* <h1 className="titleOqueE">
+                            <b>o que somos?</b></h1> */}
+                        <span className="textoOqueSomos">
+                        Embarque na jornada emocionante da aprendizagem tecnológica! Aqui, transformamos <b>curiosidade</b> em <b>conhecimento</b>, oferecendo vídeos incríveis, cursos que desafiam limites e uma comunidade cheia de energia pronta para trocar ideias e solucionar dúvidas.
+                            <br />
+                            No <b>TI TECH EDU</b>, não é apenas sobre aprender. É sobre se <b>conectar, inspirar e trilhar juntos</b> o caminho do sucesso tecnológico. Vamos construir algo incrível!</span>
+
+                    </Col>
+                    
+                </Row>
+
+            </Container>
             <Footerr />
         </>
 

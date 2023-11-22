@@ -65,7 +65,7 @@ function Login() {
                 </Container>
             </Col>
             <Col md={6} className="d-flex justify-content-center align-items-center">
-                <img src='logoNav.png'></img>
+                <img src='logo.png'></img>
             </Col>
         </Row>
     );
