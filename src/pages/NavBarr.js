@@ -43,12 +43,15 @@ export default function NavBarr() {
             <Navbar bg="dark" data-bs-theme="dark">
                 <Container>
                     <i id='menu' className="bi bi-list text-white me-2" onClick={handleShow} style={{ fontSize: 25 }}></i>
-                    <img src="/logoNav.png"
-                        width="50"
-                        height="27,30"
-                        className="d-inline-block align-top"
-                        alt="Ti Tech Edu logo"
-                        href="/home"></img>
+                    <Link to="/home">
+                        <img
+                            src="/logoNav.png"
+                            width="50"
+                            height="27"
+                            className="d-inline-block align-top"
+                            alt="Ti Tech Edu logo"
+                        />
+                    </Link>
                     {/* <Navbar.Brand href="/">Ti Tech Edu</Navbar.Brand> */}
                     <Nav className="me-auto">
                         <Nav.Link href="/home">Home</Nav.Link>
@@ -93,7 +96,7 @@ export default function NavBarr() {
                         <div>
                             <Link to="/forum" className='linkOffCanvas'>
                                 <i className="bi bi-chat p-2" style={{ fontSize: 25 }}></i>
-                                <span className=" p-2">Fórum</span>
+                                <span className=" p-2">Comunidade</span>
                             </Link>
                             <hr></hr>
                         </div>
