@@ -129,7 +129,7 @@ export default function Cursos() {
                         </div>
                     </Col>
                 </div>
-                <Carousel>
+                <Carousel style={{ marginTop: '-25px' }}>
                     {gruposDeCursos.map((grupo, index) => (
                         <Carousel.Item key={index}>
                             <Row className="py-2">

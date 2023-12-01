@@ -114,6 +114,9 @@ body {
   text-align: center;
   align-items: center;
   cursor: pointer;
+  margin-top: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
   transition: transform 0.3s ease-in-out;
   background-color: #041017;
   height: 100px;
@@ -137,16 +140,20 @@ body {
 
 .cardCurso img {
   width: 40px !important;
-  padding-top: 7%;
+  padding-top: 8%;
+  margin: 2%;
+  margin-left: 20px;
 }
 
 .cardCursoTarefa img {
+  padding-top: 12%;
   width: 40px !important;
   padding-top: 7%;
 }
 .cardCursoTarefa:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-left: -25px;
 }
 
 .caixa-selecao {
@@ -297,17 +304,17 @@ main {
 }
 
 .botaoDoc {
+
   width: auto;
   height: auto;
 text-decoration: none;
-color: white;
   border-radius: 16px;
   text-align: center;
   font-size: 15px;
   animation: blink 1.5s 2;
   margin-left: 20px;
   font-size: 16px;
-  margin-top: 10px;
+
 }
 
 .detalhesCurso {
@@ -317,11 +324,12 @@ color: white;
   text-align: center;
   color: white;
   margin-top: 10px;
-  background-color: #002967;
+  background-color: #49c8ee;
   height: 70px;
 }
 
 .iframe {
+  margin-top: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -329,10 +337,51 @@ color: white;
 
 .transcricaoCurso {
   display: flex;
-
   color: white;
   margin-top: 10px;
   height: 70px;
+}
+
+.cardCarrossel {
+  margin-bottom: 18px;
+}
+
+.labelConcluir {
+  display: flex;
+  color: white;
+  font-size: large;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.playlistSection {
+  align-items: center;
+  color: #dbf8fe;
+}
+
+.cardPlaylist {
+border: 0.5px solid #0a253f;
+background-color: #041017;
+}
+
+.cardPlaylist:hover {
+  background-color: #0a253f;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.botaoConcluirAula {
+  color: black;
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 20px;
+  font-size: 16px;
+
 }
 
 .box {
@@ -491,4 +540,9 @@ color: white;
   background-color: #041017;
   padding: 5px;
   border-radius: 8px;
+}
+
+.playlistCursos{
+  overflow: auto;
+  height: 305px;
 }
